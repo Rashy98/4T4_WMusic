@@ -3,4 +3,15 @@
     <string name="plyBTn">Play</string>
     <string name="button1">hello</string>
     <string name="lvl4top">Name the notes</string>
+    <string name="ltA">A</string>
+    <string name="ltB">B</string>
+    <string name="ltC">C</string>
+    <string name="lrD">D</string>
+    <string name="ltE">E</string>
+    <string name="ltF">F</string>
+    <string name="ltG">G</string>
+    <string name="level04q">🅝🅐🅜🅔 🅣🅗🅔 </string>
+    <string name="lvl4tp2">🅝🅞🅣🅔🅢</string>
+    <string name="blank"></string>
+
 </resources>
