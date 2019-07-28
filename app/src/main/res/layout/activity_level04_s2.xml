@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".level4"
-    android:background="@drawable/back">
+    tools:context=".level04S2"
+    android:background="@drawable/back" >
 
     <Button
         android:id="@+id/1B"
@@ -74,7 +74,7 @@
         app:layout_constraintVertical_bias="0.063" />
 
     <ImageView
-        android:id="@+id/staff1"
+        android:id="@+id/staff2"
         android:layout_width="309dp"
         android:layout_height="158dp"
         android:layout_marginStart="8dp"
@@ -89,7 +89,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.299"
-        app:srcCompat="@drawable/staff"
+        app:srcCompat="@drawable/staff2"
         android:contentDescription="TODO" />
 
 
@@ -330,5 +330,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
