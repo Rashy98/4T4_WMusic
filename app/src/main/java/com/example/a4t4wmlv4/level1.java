@@ -9,17 +9,6 @@ import android.widget.ImageView;
 
 public class level1 extends AppCompatActivity {
 
-
-    public void fade (View view){
-
-        ImageView m1 = findViewById(R.id.imageView1);
-        ImageView m2 = findViewById(R.id.imageView4);
-
-        m1.animate().alpha(0f).setDuration(2000);
-        m2.animate().alpha(1f).setDuration(2000);
-    }
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

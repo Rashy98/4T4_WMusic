@@ -16,5 +16,7 @@
     <string name="start">START</string>
     <string name="Quaver1">Quaver</string>
     <string name="BassClef1">Bass Clef</string>
+    <string name="trebleclef1">Treble Clef</string>
+    <string name="pick01">Pick the correct note</string>
 
 </resources>
