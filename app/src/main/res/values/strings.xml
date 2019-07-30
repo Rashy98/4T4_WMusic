@@ -15,5 +15,6 @@
     <string name="blank"></string>
     <string name="start">START</string>
     <string name="Quaver1">Quaver</string>
+    <string name="BassClef1">Bass Clef</string>
 
 </resources>
