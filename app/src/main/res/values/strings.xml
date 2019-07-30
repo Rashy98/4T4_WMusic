@@ -18,5 +18,20 @@
     <string name="BassClef1">Bass Clef</string>
     <string name="trebleclef1">Treble Clef</string>
     <string name="pick01">Pick the correct note</string>
+    <string name="Asharp">A#</string>
+    <string name="Bsharp">B#</string>
+    <string name="Csharp">C#</string>
+    <string name="Dsharp">D#</string>
+    <string name="Esharp">E#</string>
+    <string name="Fsharp">F#</string>
+    <string name="Gsharp">G#</string>
+    <string name="Gflat">G♭</string>
+    <string name="Aflat">A♭</string>
+    <string name="Bflat">B♭</string>
+    <string name="Cflat">C♭</string>
+    <string name="Dflat">D♭</string>
+    <string name="Eflat">E♭</string>
+    <string name="Fflat">F♭</string>
+
 
 </resources>
