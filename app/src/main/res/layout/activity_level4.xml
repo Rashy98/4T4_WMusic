@@ -8,7 +8,7 @@
     android:background="@drawable/back">
 
     <Button
-        android:id="@+id/1B"
+        android:id="@+id/B1"
         android:layout_width="59dp"
         android:layout_height="58dp"
         android:layout_marginStart="8dp"
@@ -30,7 +30,7 @@
         app:layout_constraintVertical_bias="0.7" />
 
     <Button
-        android:id="@+id/1C"
+        android:id="@+id/C1"
         android:layout_width="59dp"
         android:layout_height="58dp"
         android:layout_marginStart="8dp"
@@ -94,7 +94,7 @@
 
 
     <Button
-        android:id="@+id/1A"
+        android:id="@+id/A1"
         android:layout_width="59dp"
         android:layout_height="58dp"
         android:layout_marginStart="8dp"
@@ -116,7 +116,7 @@
         app:layout_constraintVertical_bias="0.7" />
 
     <Button
-        android:id="@+id/1G"
+        android:id="@+id/G1"
         android:layout_width="59dp"
         android:layout_height="58dp"
         android:layout_marginStart="8dp"
@@ -138,7 +138,7 @@
         app:layout_constraintVertical_bias="0.859" />
 
     <Button
-        android:id="@+id/1F"
+        android:id="@+id/F1"
         android:layout_width="59dp"
         android:layout_height="58dp"
         android:layout_marginStart="8dp"
@@ -160,7 +160,7 @@
         app:layout_constraintVertical_bias="0.859" />
 
     <Button
-        android:id="@+id/1E"
+        android:id="@+id/E1"
         android:layout_width="59dp"
         android:layout_height="58dp"
         android:layout_marginStart="8dp"
@@ -182,7 +182,7 @@
         app:layout_constraintVertical_bias="0.859" />
 
     <Button
-        android:id="@+id/1D"
+        android:id="@+id/D1"
         android:layout_width="59dp"
         android:layout_height="58dp"
         android:layout_marginStart="8dp"
@@ -224,7 +224,7 @@
         app:layout_constraintVertical_bias="0.143" />
 
     <EditText
-        android:id="@+id/4thltr"
+        android:id="@+id/ltr4"
         android:layout_width="67dp"
         android:layout_height="43dp"
         android:layout_marginStart="8dp"
@@ -247,7 +247,7 @@
         android:autofillHints="" />
 
     <EditText
-        android:id="@+id/3rdltr2"
+        android:id="@+id/ltr3"
         android:layout_width="67dp"
         android:layout_height="43dp"
         android:layout_marginStart="8dp"
@@ -269,7 +269,7 @@
         app:layout_constraintVertical_bias="0.535" />
 
     <EditText
-        android:id="@+id/2ndltr"
+        android:id="@+id/ltr2"
         android:layout_width="67dp"
         android:layout_height="43dp"
         android:layout_marginStart="8dp"
