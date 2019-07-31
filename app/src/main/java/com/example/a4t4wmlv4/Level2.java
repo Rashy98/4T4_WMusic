@@ -2,7 +2,6 @@ package com.example.a4t4wmlv4;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -10,15 +9,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.PersistableBundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.logging.Level;
 
 public class Level2 extends AppCompatActivity {
 
@@ -59,7 +53,7 @@ public class Level2 extends AppCompatActivity {
         imageView3_2 = (ImageView) findViewById(R.id.imageView3_2);
         imageView3_3 = (ImageView) findViewById(R.id.imageView3_3);
         imageView3_4 = (ImageView) findViewById(R.id.imageView3_4);
-        imageView3_1 = (ImageView) findViewById(R.id.imageView4_1);
+        imageView4_1 = (ImageView) findViewById(R.id.imageView4_1);
         imageView4_2 = (ImageView) findViewById(R.id.imageView4_2);
         imageView4_3 = (ImageView) findViewById(R.id.imageView4_3);
         imageView4_4 = (ImageView) findViewById(R.id.imageView4_4);

@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".level2_r1"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,11 +10,10 @@
     android:paddingBottom="16dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    android:paddingTop="16dp"
-    tools:context="com.example.a4t4wmlv4.Level2">
+    android:paddingTop="16dp">
 
     <include
-        layout="@layout/image"
+        layout="@layout/image1"
         android:layout_width="253dp"
         android:layout_height="246dp"
         android:layout_centerHorizontal="true"
@@ -29,8 +29,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.412" />
-        <!--tools:layout_editor_absoluteX="273dp"-->
-        <!--tools:layout_editor_absoluteY="573dp" -->
+    <!--tools:layout_editor_absoluteX="273dp"-->
+    <!--tools:layout_editor_absoluteY="573dp" -->
 
     <TextView
         android:id="@+id/Tv1"
