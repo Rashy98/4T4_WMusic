@@ -17,6 +17,9 @@
     <string name="Quaver1">Quaver</string>
     <string name="BassClef1">Bass Clef</string>
     <string name="trebleclef1">Treble Clef</string>
-    <string name="pick01">Pick the correct note</string>
+    <string name="pick01">Pick the correct symbol</string>
+    <string name="crochet1">crochet</string>
+    <string name="score">score</string>
+    <string name="time">Time</string>
 
 </resources>
