@@ -10,10 +10,21 @@ import android.widget.TextView;
 public class level4 extends AppCompatActivity {
 
     Button A , B , C ,D , E , F , G ;
+    Button home;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level4);
+
+        home = (Button) findViewById(R.id.homebutton1);
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                finish();
+            }
+        });
         A = (Button) findViewById(R.id.A1);
         B = (Button) findViewById(R.id.B1);
         C = (Button) findViewById(R.id.C1);
