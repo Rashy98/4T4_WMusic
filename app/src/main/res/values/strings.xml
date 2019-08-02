@@ -18,5 +18,9 @@
     <string name="BassClef1">Bass Clef</string>
     <string name="trebleclef1">Treble Clef</string>
     <string name="pick01">Pick the correct note</string>
+    <string name="add">+</string>
+    <string name="equal">=</string>
+    <string name="lvl03Topic">NOTE VALUE COUNTING</string>
+    <string name="lvl03cnf">OK</string>
 
 </resources>
