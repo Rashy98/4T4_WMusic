@@ -13,6 +13,8 @@
         <activity android:name=".level2" />
         <activity android:name=".level4" />
         <activity android:name=".level1" />
+        <activity android:name=".level03_int01"/>
+        <activity android:name=".level03_int02"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
