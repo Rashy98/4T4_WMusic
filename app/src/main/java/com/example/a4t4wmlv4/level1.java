@@ -13,11 +13,22 @@ public class level1 extends AppCompatActivity {
 
     Button b1;
     ImageView iv1;
+    Button home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level1);
+
+        home = (Button) findViewById(R.id.homebutton1);
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                finish();
+            }
+        });
 
         clickfunction();
     }

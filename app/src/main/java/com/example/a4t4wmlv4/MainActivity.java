@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void switchPage (View v){
         if(v == button01) {
-            Intent intent = new Intent(this, level1.class);
+            Intent intent = new Intent(this, level01Int2.class);
             startActivity(intent);
         }
         else if(v == button04)
