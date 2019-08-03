@@ -49,13 +49,13 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        button03.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                switchPage(view);
-            }
-        });
+//        button03.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                switchPage(view);
+//            }
+//        });
 
         button04.setOnClickListener(new View.OnClickListener() {
             @Override
