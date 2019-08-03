@@ -22,5 +22,8 @@
     <string name="equal">=</string>
     <string name="lvl03Topic">NOTE VALUE COUNTING</string>
     <string name="lvl03cnf">OK</string>
+    <string name="time">TIME</string>
+    <string name="score">SCORE</string>
+
 
 </resources>

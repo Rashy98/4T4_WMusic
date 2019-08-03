@@ -2,6 +2,7 @@ package com.example.a4t4wmlv4;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +16,8 @@ public class level4 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level4);
+        MediaPlayer ring= MediaPlayer.create(level4.this,R.raw.lushlife);
+        ring.start();
 
         home = (Button) findViewById(R.id.homebutton1);
 
