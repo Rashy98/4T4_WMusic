@@ -45,6 +45,9 @@
     <string name="Bsharp">B#</string>
     <string name="crotchet1">CROTCHET</string>
     <string name="sub">-</string>
-
+    <string name="one">01</string>
+    <string name="two">02</string>
+    <string name="three">03</string>
+    <string name="four">04</string>
 
 </resources>
