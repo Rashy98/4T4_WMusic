@@ -94,7 +94,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:background="#FFFFFFFF"
-        android:text="@string/crochet1"
+        android:text="@string/crotchet1"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
         android:textColor="@android:color/background_dark"
         app:layout_constraintBottom_toBottomOf="parent"

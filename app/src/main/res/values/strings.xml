@@ -43,8 +43,7 @@
     <string name="Fsharp">F#</string>
     <string name="Gsharp">G#</string>
     <string name="Bsharp">B#</string>
-
-
+    <string name="crotchet1">CROTCHET</string>
 
 
 </resources>
