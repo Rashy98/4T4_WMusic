@@ -49,6 +49,8 @@
     <string name="two">02</string>
     <string name="three">03</string>
     <string name="four">04</string>
+    <string name="mul">mul</string>
+    <string name="level1main">Pick the correct symbol</string>
 
 
 </resources>

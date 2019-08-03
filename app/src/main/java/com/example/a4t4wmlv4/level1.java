@@ -12,13 +12,23 @@ import android.widget.ImageView;
 public class level1 extends AppCompatActivity {
 
 
-    Button homebutton;
+    Button homebutton,back;
     ImageView iv1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level1);
+
+        back = findViewById(R.id.backbtn2);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(level1.this, level01_Main.class);
+                startActivity(intent);
+            }
+        });
 
         homebutton = findViewById(R.id.button20);
 
@@ -30,24 +40,6 @@ public class level1 extends AppCompatActivity {
             }
         });
 
-//        clickfunction();
+
     }
-
-
-//    public void clickfunction() {
-//
-//
-//
-//        b1 = (Button) findViewById(R.id.button10);
-//
-//        b1.setOnClickListener(new View.OnClickListener(){
-//
-//        public void onClick(View arg0){
-//
-//            iv1.setImageResource(R.drawable.correct);
-//        }
-//
-//        });
-//
-//    }
 }
