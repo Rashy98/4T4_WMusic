@@ -11,12 +11,25 @@
         android:theme="@style/AppTheme">
         <activity android:name=".level01_Main"></activity>
         <activity android:name=".level4" />
+        <activity android:name=".level2_int3"></activity>
+        <activity android:name=".level2_int1" />
+        <activity android:name=".level2_int2" />
+        <activity android:name=".level2_r2" />
+        <activity android:name=".level2" />
+        <activity android:name=".level4" />
         <activity android:name=".level1" />
         <activity android:name=".level03_int01" />
         <activity android:name=".level03_int02" />
         <activity android:name=".level01Int2"></activity>
         <activity android:name=".level01Int3"></activity>
         <activity android:name=".level01int4"></activity>
+        <activity android:name=".level03_int01" />
+        <activity android:name=".level03_int02" />
+        <activity android:name=".level04Main" />
+        <activity android:name=".level04S2" />
+        <activity android:name=".level04_int04" />
+        <activity android:name=".level04_int03" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -3,9 +3,12 @@ package com.example.a4t4wmlv4;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import static com.example.a4t4wmlv4.R.layout.activity_level04_main;
 
 public class level04Main extends AppCompatActivity {
 
@@ -14,6 +17,10 @@ public class level04Main extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level04_main);
+
+        MediaPlayer mplayer = MediaPlayer.create(this,R.raw.background);
+
+        mplayer.start();
 
         but01 =(Button) findViewById(R.id.int3);
         but02 =(Button) findViewById(R.id.int0204);
