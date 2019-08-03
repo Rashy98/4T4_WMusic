@@ -13,7 +13,7 @@ public class level04S2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level04_s2);
-        home = (Button) findViewById(R.id.homebutton1);
+        home = (Button) findViewById(R.id.homel403);
 
         home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -22,5 +22,7 @@ public class level04S2 extends AppCompatActivity {
                 finish();
             }
         });
+
+
     }
 }
