@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         button04 = (Button) findViewById(R.id.button_to_level04);
         button01 =(Button) findViewById(R.id.button_to_level01);
+        button02 =(Button) findViewById(R.id.button_to_level2);
 
         button04.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,6 +39,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        button02.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                switchPage(view);
+            }
+        });
 
 
 
@@ -47,6 +55,11 @@ public class MainActivity extends AppCompatActivity {
     public void switchPage (View v){
         if(v == button01) {
             Intent intent = new Intent(this, level1.class);
+            startActivity(intent);
+        }
+        else if(v == button02)
+        {
+            Intent intent = new Intent(this, level2.class);
             startActivity(intent);
         }
         else if(v == button04)

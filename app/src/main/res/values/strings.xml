@@ -27,15 +27,13 @@
     <string name="level04topic">ℕ𝔸𝕄𝔼 𝕋ℍ𝔼 ℕ𝕆𝕋𝔼𝕊</string>
     <string name="level03topic">ℕ𝕆𝕋𝔼 𝕍𝔸𝕃𝕌𝔼 ℂ𝕆𝕌ℕ𝕋𝕀ℕ𝔾</string>
     <string name="level01topic">𝕊𝔼𝕃𝔼ℂ𝕋 𝕋ℍ𝔼 ℂ𝕆ℝℝ𝔼ℂ𝕋 𝕆ℕ𝔼</string>
+    <string name="level02topic">𝔽𝕝𝕚𝕡 𝔸𝕟𝕕 𝕄𝕒𝕥𝕔𝕙</string>
     <string name="Aflat">A♭</string>
     <string name="Bflat">B♭</string>
     <string name="Cflat">C♭</string>
     <string name="Dflat">D♭</string>
     <string name="Eflat">E♭</string>
     <string name="Fflat">F♭</string>
-    <string name="Gflat">G♭</string>
-
-
     <string name="Asharp">A#</string>
     <string name="Csharp">C#</string>
     <string name="Dsharp">D#</string>
@@ -45,6 +43,15 @@
     <string name="Bsharp">B#</string>
     <string name="crotchet1">CROTCHET</string>
     <string name="sub">-</string>
+    <string name="NextR1">𝓡𝓸𝓾𝓷𝓭1</string>
+    <string name="NextR2">𝓡𝓸𝓾𝓷𝓭2</string>
+    <string name="NextR3">𝓡𝓸𝓾𝓷𝓭3</string>
+    <string name="bck">𝐆𝐨 𝐁𝐚𝐜𝐤</string>
+    <string name="one">01</string>
+    <string name="two">02</string>
+    <string name="three">03</string>
+    <string name="four">04</string>
+    <string name="mul">Mul</string>
 
 
 </resources>

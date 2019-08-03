@@ -121,7 +121,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/button"
-        android:text="@string/level2topic"
+        android:text="@string/level02topic"
         android:textColor="@color/colorPrimary"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
