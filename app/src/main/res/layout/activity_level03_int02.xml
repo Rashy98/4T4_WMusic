@@ -80,7 +80,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/add"
+        android:text="@string/sub"
         android:textColor="@android:color/black"
         android:textSize="36sp"
         android:textStyle="bold"
@@ -115,7 +115,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button12"
+        android:id="@+id/lvl3Homebtn"
         android:layout_width="47dp"
         android:layout_height="39dp"
         android:layout_marginStart="8dp"
@@ -150,7 +150,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.289"
-        app:srcCompat="@drawable/crotchetlvl3" />
+        app:srcCompat="@drawable/minim1" />
 
     <ImageView
         android:id="@+id/imageView13"
@@ -168,6 +168,6 @@
         app:layout_constraintStart_toEndOf="@+id/imageView12"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.317"
-        app:srcCompat="@drawable/crochet" />
+        app:srcCompat="@drawable/quaver2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
