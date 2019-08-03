@@ -24,6 +24,27 @@
     <string name="lvl03cnf">OK</string>
     <string name="time">TIME</string>
     <string name="score">SCORE</string>
+    <string name="level04topic">ℕ𝔸𝕄𝔼 𝕋ℍ𝔼 ℕ𝕆𝕋𝔼𝕊</string>
+    <string name="level03topic">ℕ𝕆𝕋𝔼 𝕍𝔸𝕃𝕌𝔼 ℂ𝕆𝕌ℕ𝕋𝕀ℕ𝔾</string>
+    <string name="level01topic">𝕊𝔼𝕃𝔼ℂ𝕋 𝕋ℍ𝔼 ℂ𝕆ℝℝ𝔼ℂ𝕋 𝕆ℕ𝔼</string>
+    <string name="Aflat">A♭</string>
+    <string name="Bflat">B♭</string>
+    <string name="Cflat">C♭</string>
+    <string name="Dflat">D♭</string>
+    <string name="Eflat">E♭</string>
+    <string name="Fflat">F♭</string>
+    <string name="Gflat">G♭</string>
+
+
+    <string name="Asharp">A#</string>
+    <string name="Csharp">C#</string>
+    <string name="Dsharp">D#</string>
+    <string name="Esharp">E#</string>
+    <string name="Fsharp">F#</string>
+    <string name="Gsharp">G#</string>
+    <string name="Bsharp">B#</string>
+
+
 
 
 </resources>
