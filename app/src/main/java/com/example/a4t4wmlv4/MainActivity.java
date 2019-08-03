@@ -34,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                switchPage(view);
+                Intent intent = new Intent(MainActivity.this, level1.class);
+                startActivity(intent);
             }
         });
 
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void switchPage (View v){
         if(v == button01) {
-            Intent intent = new Intent(this, level01Int2.class);
+            Intent intent = new Intent(this, level1.class);
             startActivity(intent);
         }
         else if(v == button04)

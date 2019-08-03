@@ -2,6 +2,7 @@ package com.example.a4t4wmlv4;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,43 +12,42 @@ import android.widget.ImageView;
 public class level1 extends AppCompatActivity {
 
 
-    Button b1;
+    Button homebutton;
     ImageView iv1;
-    Button home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level1);
 
-        home = (Button) findViewById(R.id.homebutton1);
+        homebutton = findViewById(R.id.button20);
 
-        home.setOnClickListener(new View.OnClickListener() {
+        homebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                finish();
+                Intent intent = new Intent(level1.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 
-        clickfunction();
+//        clickfunction();
     }
 
 
-    public void clickfunction() {
-
-
-
-        b1 = (Button) findViewById(R.id.button10);
-
-        b1.setOnClickListener(new View.OnClickListener(){
-
-        public void onClick(View arg0){
-
-            iv1.setImageResource(R.drawable.correct);
-        }
-
-        });
-
-    }
+//    public void clickfunction() {
+//
+//
+//
+//        b1 = (Button) findViewById(R.id.button10);
+//
+//        b1.setOnClickListener(new View.OnClickListener(){
+//
+//        public void onClick(View arg0){
+//
+//            iv1.setImageResource(R.drawable.correct);
+//        }
+//
+//        });
+//
+//    }
 }
