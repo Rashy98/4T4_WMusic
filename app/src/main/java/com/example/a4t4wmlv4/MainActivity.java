@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else if(v == button04)
         {
-            Intent intent = new Intent(this, level4.class);
+            Intent intent = new Intent(this, level04Main.class);
             startActivity(intent);
         }
     }

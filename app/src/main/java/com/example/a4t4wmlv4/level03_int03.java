@@ -2,18 +2,18 @@ package com.example.a4t4wmlv4;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class level03_int02 extends AppCompatActivity {
+public class level03_int03 extends AppCompatActivity {
 
-    private Button home, ok;
+    private Button home;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_level03_int02);
+        setContentView(R.layout.activity_level03_int03);
 
         home = (Button) findViewById(R.id.lvl3Homebtn);
 
@@ -22,17 +22,6 @@ public class level03_int02 extends AppCompatActivity {
             public void onClick(View view) {
 
                 finish();
-            }
-        });
-
-        ok = (Button) findViewById(R.id.cnfBtn);
-
-        ok.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent = new Intent(level03_int02.this, level03_int03.class);
-                startActivity(intent);
             }
         });
 
