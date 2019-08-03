@@ -21,7 +21,7 @@
     <string name="add">+</string>
     <string name="equal">=</string>
     <string name="lvl03Topic">NOTE VALUE COUNTING</string>
-    <string name="lvl03cnf">OK</string>
+    <string name="lvl03cnf">NEXT</string>
     <string name="time">TIME</string>
     <string name="score">SCORE</string>
     <string name="level04topic">ℕ𝔸𝕄𝔼 𝕋ℍ𝔼 ℕ𝕆𝕋𝔼𝕊</string>
@@ -51,7 +51,7 @@
     <string name="two">02</string>
     <string name="three">03</string>
     <string name="four">04</string>
-    <string name="mul">mul</string>
+    <string name="mul">x</string>
     <string name="level1main">Pick the correct symbol</string>
 
 
