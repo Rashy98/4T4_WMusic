@@ -18,7 +18,7 @@ public class level04Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level04_main);
 
-        MediaPlayer mplayer = MediaPlayer.create(this,R.raw.background);
+        final MediaPlayer mplayer = MediaPlayer.create(this,R.raw.background);
 
         mplayer.start();
 
@@ -42,6 +42,7 @@ public class level04Main extends AppCompatActivity {
             public void onClick(View view) {
 
                 switchPage(view);
+                mplayer.pause();
             }
         });
 
@@ -50,6 +51,7 @@ public class level04Main extends AppCompatActivity {
             public void onClick(View view) {
 
                 switchPage(view);
+                mplayer.pause();
             }
         });
         but03.setOnClickListener(new View.OnClickListener() {
@@ -57,6 +59,7 @@ public class level04Main extends AppCompatActivity {
             public void onClick(View view) {
 
                 switchPage(view);
+                mplayer.pause();
             }
         });
         but04.setOnClickListener(new View.OnClickListener() {
@@ -64,6 +67,7 @@ public class level04Main extends AppCompatActivity {
             public void onClick(View view) {
 
                 switchPage(view);
+                mplayer.pause();
             }
         });
     }

@@ -3,6 +3,7 @@ package com.example.a4t4wmlv4;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,9 @@ public class level01_Main extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level01__main);
+        final MediaPlayer mplayer = MediaPlayer.create(this,R.raw.background);
+
+        mplayer.start();
 
         back = findViewById(R.id.backbtn5);
 
@@ -22,6 +26,7 @@ public class level01_Main extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(level01_Main.this, MainActivity.class);
                 startActivity(intent);
+                mplayer.pause();
             }
         });
 
@@ -38,6 +43,7 @@ public class level01_Main extends AppCompatActivity {
             public void onClick(View view) {
 
                 finish();
+                mplayer.pause();
             }
         });
 
@@ -46,6 +52,7 @@ public class level01_Main extends AppCompatActivity {
             public void onClick(View view) {
 
                 switchPage(view);
+                mplayer.pause();
             }
         });
 
@@ -54,6 +61,7 @@ public class level01_Main extends AppCompatActivity {
             public void onClick(View view) {
 
                 switchPage(view);
+                mplayer.pause();
             }
         });
         but03.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +69,7 @@ public class level01_Main extends AppCompatActivity {
             public void onClick(View view) {
 
                 switchPage(view);
+                mplayer.pause();
             }
         });
         but04.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +77,7 @@ public class level01_Main extends AppCompatActivity {
             public void onClick(View view) {
 
                 switchPage(view);
+                mplayer.pause();
             }
         });
     }

@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 switchPage(view);
+                mplayer.pause();
             }
         });
         button01.setOnClickListener(new View.OnClickListener() {
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(MainActivity.this, level01_Main.class);
                 startActivity(intent);
+                mplayer.pause();
             }
         });
         button02.setOnClickListener(new View.OnClickListener() {
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 switchPage(view);
+                mplayer.pause();
 
             }
         });

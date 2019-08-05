@@ -18,7 +18,7 @@ public class level2 extends AppCompatActivity {
         setContentView(R.layout.activity_level2);
 
         player = new MediaPlayer();
-        player = MediaPlayer.create(this, R.raw.funny);
+        player = MediaPlayer.create(this, R.raw.background);
         //player.setLooping(true);
         player.start();
 
@@ -28,7 +28,7 @@ public class level2 extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(level2.this, MainActivity.class );
                 startActivity(intent);
-                player.stop();
+                player.pause();
 
             }
         });

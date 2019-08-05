@@ -2,6 +2,7 @@ package com.example.a4t4wmlv4;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,9 @@ public class level04_int04 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level04_int04);
+        final MediaPlayer mplayer = MediaPlayer.create(this,R.raw.background);
+
+        mplayer.start();
 
         home = (Button) findViewById(R.id.homebutton1);
 
@@ -21,6 +25,7 @@ public class level04_int04 extends AppCompatActivity {
             public void onClick(View view) {
 
                 finish();
+                mplayer.pause();
             }
         });
     }

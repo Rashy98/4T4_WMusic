@@ -16,7 +16,7 @@ public class level4 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level4);
-        MediaPlayer ring= MediaPlayer.create(level4.this,R.raw.lushlife);
+        final MediaPlayer ring= MediaPlayer.create(level4.this,R.raw.background);
         ring.start();
 
         home = (Button) findViewById(R.id.homebutton1);
@@ -26,6 +26,7 @@ public class level4 extends AppCompatActivity {
             public void onClick(View view) {
 
                 finish();
+                ring.pause();
             }
         });
         A = (Button) findViewById(R.id.A1);
