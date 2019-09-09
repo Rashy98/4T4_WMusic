@@ -1,36 +1,83 @@
 package com.example.a4t4wmlv4;
 
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
+import android.text.format.DateUtils;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Arrays;
 import java.util.Collections;
 
+import Database.DBHelper;
+
 public class level2_int1 extends AppCompatActivity {
-
+    TextView Tv1_p2 ;
     ImageView iv11,iv12,iv13,iv14,iv21,iv22,iv23,iv24;
-    private ImageView home1;
+    private ImageButton sound;
+    private ImageView home2;
+    private TextView username;
 
-    Integer[] cardArray = {101,105,106,102,105,106,101,102};
+    Integer[] cardArray = {101,104,105,108,101,104,105,108};
 
-    int sys_101,sys_102,sys_105,sys_106;
+    int sym_101,sym_104,sym_105,sym_108;
     int firstCard, secondCard;
     int clickedFirst, clickedSecond;
-    int cardNumber = 1;
     int turn = 1;
-    int playerpoints = 0 ;
+    int cardNumber = 1;
+    int playerPoints = 0 ;
+    public static MediaPlayer player;
+    boolean isPressed=false;
+
+    DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_int1);
 
-        home1 = findViewById(R.id.iv1);
+        player = new MediaPlayer();
+        player = MediaPlayer.create(this, R.raw.background);
+        //player.setLooping(true);
+        player.start();
+
+        final TextView time = (TextView) findViewById(R.id.time);
+        CountDownTimer ctdown = new CountDownTimer(40000,1000) {
+            @Override
+            public void onTick(long l) {
+
+                TextView time = (TextView) findViewById(R.id.time);
+
+                time.setText("Seconds remaining : " + DateUtils.formatElapsedTime(l/1000));
+            }
+            @Override
+            public void onFinish() {
+                Intent a = new Intent(level2_int1.this, timesup.class);
+                startActivity(a);
+
+            }
+        }.start();
+
+        dbHelper = new DBHelper(this);
+
+        home2 = findViewById(R.id.Iv1);
+
+        username = findViewById(R.id.username);
+
+        sound = (ImageButton) findViewById(R.id.sound);
+
+        Tv1_p2 = (TextView) findViewById(R.id.Tv1_p2);
 
         iv11 = (ImageView)findViewById(R.id.iv11);
         iv12 = (ImageView)findViewById(R.id.iv12);
@@ -42,15 +89,15 @@ public class level2_int1 extends AppCompatActivity {
         iv24 = (ImageView)findViewById(R.id.iv24);
 
         iv11.setTag("0");
-        iv12.setTag("0");
-        iv13.setTag("0");
-        iv13.setTag("0");
-        iv21.setTag("0");
-        iv22.setTag("0");
-        iv23.setTag("0");
-        iv24.setTag("0");
+        iv12.setTag("1");
+        iv13.setTag("2");
+        iv14.setTag("3");
+        iv21.setTag("4");
+        iv22.setTag("5");
+        iv23.setTag("6");
+        iv24.setTag("7");
 
-        frontOfCardresources();
+        frontOfCardResources();
 
         Collections.shuffle(Arrays.asList(cardArray));
 
@@ -119,11 +166,27 @@ public class level2_int1 extends AppCompatActivity {
                 doStuff(iv24, theCard);
             }
         });
-        home1.setOnClickListener(new View.OnClickListener() {
+        sound.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sound.setBackgroundResource(R.drawable.mute);
+                if(isPressed){
+                    sound.setBackgroundResource(R.drawable.mute);
+                    player.pause();
+                }else{
+                    sound.setBackgroundResource(R.drawable.sound);
+                    player.start();
+                }
+                isPressed=!isPressed;
+
+            }
+        });
+        home2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 SwitchPage();
+                player.pause();
             }
         });
 
@@ -136,38 +199,31 @@ public class level2_int1 extends AppCompatActivity {
 
     private void doStuff(ImageView iv, int Card) {
 
-        if(cardArray[Card] == 101){
-            iv.setImageResource(sys_101);
+        if (cardArray[Card] == 101) {
+            iv.setImageResource(sym_101);
         }
-        else if(cardArray[Card] == 102){
-            iv.setImageResource(sys_102);
+        else if (cardArray[Card] == 104) {
+            iv.setImageResource(sym_104);
         }
-        else if(cardArray[Card] == 105){
-            iv.setImageResource(sys_105);
+        else if (cardArray[Card] == 105) {
+            iv.setImageResource(sym_105);
         }
-        else if(cardArray[Card] == 106){
-            iv.setImageResource(sys_106);
+        else if (cardArray[Card] == 108) {
+            iv.setImageResource(sym_108);
         }
-
-        if(cardNumber == 1){
+        if (cardNumber == 1) {
             firstCard = cardArray[Card];
-            if(firstCard > 200)
-            {
-                firstCard = firstCard - 100;
 
-            }
-
-            cardNumber =2;
+            cardNumber = 2;
             clickedFirst = Card;
 
             iv.setEnabled(false);
 
-        }
-        else
+        } else if (cardNumber == 2)
         {
             secondCard = cardArray[Card];
 
-            cardNumber =2;
+            cardNumber = 1;
             clickedSecond = Card;
 
             iv11.setEnabled(false);
@@ -187,75 +243,131 @@ public class level2_int1 extends AppCompatActivity {
                     calculate();
 
                 }
-            },1000);
+            }, 1000);
         }
     }
 
     private void calculate() {
         if(firstCard == secondCard){
             if(clickedFirst == 0){
-                iv11.setVisibility(View.VISIBLE);
+                iv11.setVisibility(View.INVISIBLE);
             }
             else if(clickedFirst == 1){
-                iv12.setVisibility(View.VISIBLE);
+                iv12.setVisibility(View.INVISIBLE);
             }
             else if(clickedFirst == 2){
-                iv13.setVisibility(View.VISIBLE);
+                iv13.setVisibility(View.INVISIBLE);
             }
             else if(clickedFirst == 3){
-                iv14.setVisibility(View.VISIBLE);
+                iv14.setVisibility(View.INVISIBLE);
             }
             else if(clickedFirst == 4){
-                iv21.setVisibility(View.VISIBLE);
+                iv21.setVisibility(View.INVISIBLE);
             }
             else if(clickedFirst == 5){
-                iv22.setVisibility(View.VISIBLE);
+                iv22.setVisibility(View.INVISIBLE);
             }
             else if(clickedFirst == 6){
-                iv23.setVisibility(View.VISIBLE);
+                iv23.setVisibility(View.INVISIBLE);
             }
             else if(clickedFirst == 7){
-                iv24.setVisibility(View.VISIBLE);
+                iv24.setVisibility(View.INVISIBLE);
             }
 
             if(clickedSecond == 0){
-                iv11.setVisibility(View.VISIBLE);
+                iv11.setVisibility(View.INVISIBLE);
             }
             else if(clickedSecond == 1){
-                iv12.setVisibility(View.VISIBLE);
+                iv12.setVisibility(View.INVISIBLE);
             }
             else if(clickedSecond == 2){
-                iv13.setVisibility(View.VISIBLE);
+                iv13.setVisibility(View.INVISIBLE);
             }
             else if(clickedSecond == 3){
-                iv14.setVisibility(View.VISIBLE);
+                iv14.setVisibility(View.INVISIBLE);
             }
             else if(clickedSecond == 4){
-                iv21.setVisibility(View.VISIBLE);
+                iv21.setVisibility(View.INVISIBLE);
             }
             else if(clickedSecond == 5){
-                iv22.setVisibility(View.VISIBLE);
+                iv22.setVisibility(View.INVISIBLE);
             }
             else if(clickedSecond == 6){
-                iv23.setVisibility(View.VISIBLE);
+                iv23.setVisibility(View.INVISIBLE);
             }
             else if(clickedSecond == 7){
-                iv24.setVisibility(View.VISIBLE);
+                iv24.setVisibility(View.INVISIBLE);
+            }
+            if(turn == 1){
+                playerPoints ++;
+                Tv1_p2.setText("Points: " +playerPoints);
             }
 
-            if(turn == 1){
-                playerpoints ++;
-            }
+        }
+        else {
+            iv11.setImageResource(R.drawable.hidden);
+            iv12.setImageResource(R.drawable.hidden);
+            iv13.setImageResource(R.drawable.hidden);
+            iv14.setImageResource(R.drawable.hidden);
+            iv21.setImageResource(R.drawable.hidden);
+            iv22.setImageResource(R.drawable.hidden);
+            iv23.setImageResource(R.drawable.hidden);
+            iv24.setImageResource(R.drawable.hidden);
+
+        }
+        iv11.setEnabled(true);
+        iv12.setEnabled(true);
+        iv13.setEnabled(true);
+        iv14.setEnabled(true);
+        iv21.setEnabled(true);
+        iv22.setEnabled(true);
+        iv23.setEnabled(true);
+        iv24.setEnabled(true);
+
+        checkEnd();
+    }
+
+//    public void round1marks(View view){
+//
+//        String marks = Integer.toString(playerPoints);
+//        String name =  username.getText().toString();
+//
+//        boolean r1m = dbHelper.insertData(name, "1" , marks);
+//
+//        if(r1m == true){
+//            Toast.makeText(this, "Data inserted successfully", Toast.LENGTH_LONG).show();
+//        }
+//        else{
+//            Toast.makeText(this, "Data insert unsuccessfull", Toast.LENGTH_LONG).show();
+//        }
+//    }
+    private void checkEnd() {
+
+        if(iv11.getVisibility() == View.INVISIBLE &&
+                iv11.getVisibility() == View.INVISIBLE &&
+                iv12.getVisibility() == View.INVISIBLE &&
+                iv13.getVisibility() == View.INVISIBLE &&
+                iv14.getVisibility() == View.INVISIBLE &&
+                iv21.getVisibility() == View.INVISIBLE &&
+                iv22.getVisibility() == View.INVISIBLE &&
+                iv23.getVisibility() == View.INVISIBLE &&
+                iv24.getVisibility() == View.INVISIBLE ){
+
+
+            Intent intent = new Intent(this, next.class);
+            String point = Integer.toString(playerPoints);
+            intent.putExtra("Player Points",point);
+            startActivity(intent);
 
         }
     }
 
-    private void frontOfCardresources() {
+    private void frontOfCardResources() {
 
-        sys_101 = R.drawable.sym_101;
-        sys_102 = R.drawable.sym_102;
-        sys_105 = R.drawable.sym_105;
-        sys_106 = R.drawable.sym_106;
+        sym_101 = R.drawable.sym_101;
+        sym_104 = R.drawable.sym_104;
+        sym_105 = R.drawable.sym_105;
+        sym_108 = R.drawable.sym_108;
 
-    }
-}
+
+    }}

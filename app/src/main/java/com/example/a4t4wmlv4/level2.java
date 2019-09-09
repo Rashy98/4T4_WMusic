@@ -1,16 +1,22 @@
 package com.example.a4t4wmlv4;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.content.Intent;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class level2 extends AppCompatActivity {
 
-    private Button button1, button2, button3;
+    private Button button1, button2;
+    private ImageButton sound;
     public static MediaPlayer player;
+    boolean isPressed=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,19 +37,20 @@ public class level2 extends AppCompatActivity {
                 player.pause();
 
             }
+
         });
-
-
 
         button1 = (Button) findViewById(R.id.btn2);
         button2 =(Button) findViewById(R.id.btn3);
-        button3 = (Button) findViewById(R.id.btn4);
+        sound = (ImageButton) findViewById(R.id.sound);
+
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 NextPage(view);
+                player.pause();
             }
         });
         button2.setOnClickListener(new View.OnClickListener() {
@@ -51,13 +58,23 @@ public class level2 extends AppCompatActivity {
             public void onClick(View view) {
 
                 NextPage(view);
+                player.pause();
             }
         });
-        button3.setOnClickListener(new View.OnClickListener() {
+
+        sound.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                sound.setBackgroundResource(R.drawable.mute);
+                if(isPressed){
+                    sound.setBackgroundResource(R.drawable.mute);
+                    player.pause();
+                }else{
+                    sound.setBackgroundResource(R.drawable.sound);
+                    player.start();
+                }
+                isPressed=!isPressed;
 
-                NextPage(view);
             }
         });
 
@@ -70,12 +87,7 @@ public class level2 extends AppCompatActivity {
         }
         else if(v == button2)
         {
-            Intent intent = new Intent(this, level2_int2.class);
-            startActivity(intent);
-        }
-        else if(v == button3)
-        {
-            Intent intent = new Intent(this, level2_int3.class);
+            Intent intent = new Intent(this, level2.class);
             startActivity(intent);
         }
     }

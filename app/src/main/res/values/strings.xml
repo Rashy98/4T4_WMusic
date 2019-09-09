@@ -53,7 +53,12 @@
     <string name="four">04</string>
     <string name="mul">x</string>
     <string name="level1main">Pick the correct symbol</string>
-    <string name="points">POINTS :</string>
+    <string name="Pnts">Points :</string>
+    <string name="timesup">Times Up! </string>
+    <string name="tagain">Try Again </string>
+    <string name="Lplay">𝑷𝒍𝒂𝒚 𝒂𝒏𝒅 𝑾𝒊𝒏</string>
+    <string name="yourscore">𝒀𝒐𝒖𝒓 𝒔𝒄𝒐𝒓𝒆 𝒊𝒔</string>
+    <string name="details">𝑺𝒆𝒆 𝒀𝒐𝒖𝒓 𝑹𝒐𝒖𝒏𝒅 𝑺𝒄𝒐𝒓𝒆𝒔</string>
 
 
 </resources>

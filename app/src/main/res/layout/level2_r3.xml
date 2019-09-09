@@ -1,7 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_activity_root"
+    android:id="@+id/Tv1_p1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="78dp"
+        android:layout_height="25dp"
         android:layout_weight="1"
         android:orientation="horizontal"
         android:weightSum="4">
@@ -53,8 +53,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="28dp"
-        android:layout_weight="1"
+        android:layout_height="25dp"
+        android:layout_weight="0.75"
         android:orientation="horizontal"
         android:weightSum="4">
 
@@ -93,8 +93,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="29dp"
-        android:layout_weight="1"
+        android:layout_height="25dp"
+        android:layout_weight="0.75"
         android:orientation="horizontal"
         android:weightSum="4">
 
@@ -133,7 +133,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="123dp"
+        android:layout_height="25dp"
         android:layout_alignParentStart="true"
         android:layout_weight="1"
         android:orientation="horizontal"

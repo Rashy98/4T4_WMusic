@@ -1,7 +1,6 @@
 package com.example.a4t4wmlv4;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -13,6 +12,7 @@ import static com.example.a4t4wmlv4.R.layout.activity_level04_main;
 public class level04Main extends AppCompatActivity {
 
     private Button but01 , but02 , but03 , but04 , home;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
