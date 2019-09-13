@@ -4,20 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/lvl03"
+    android:background="@drawable/bgapp03"
     tools:context=".level03_int03">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/lvl03"
-        tools:context=".level03_int03"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="34dp">
+
 
         <Button
             android:id="@+id/button2"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
@@ -31,7 +25,8 @@
             app:layout_constraintHorizontal_bias="0.53"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editText3"
-            app:layout_constraintVertical_bias="0.215" />
+            app:layout_constraintVertical_bias="0.215"
+            android:background="@drawable/bgpink"/>
 
         <EditText
             android:id="@+id/editText3"
@@ -167,4 +162,3 @@
             app:srcCompat="@drawable/semiquave" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>

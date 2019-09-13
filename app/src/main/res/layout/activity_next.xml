@@ -58,7 +58,7 @@
         android:layout_marginEnd="64dp"
         android:layout_marginRight="64dp"
         android:layout_marginBottom="103dp"
-        android:background="@drawable/next2" />
+        android:background="@drawable/next" />
 
     <TextView
         android:id="@+id/score"

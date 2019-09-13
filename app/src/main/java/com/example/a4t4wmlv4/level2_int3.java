@@ -21,7 +21,7 @@ import android.widget.Toast;
 import java.util.Arrays;
 import java.util.Collections;
 
-import Database.DBHelper;
+//import Database.DBHelper;
 
 public class level2_int3 extends AppCompatActivity {
     TextView Tv1_p2 ;
@@ -41,7 +41,7 @@ public class level2_int3 extends AppCompatActivity {
     public static MediaPlayer player;
     boolean isPressed=false;
 
-    DBHelper dbHelper;
+   // DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +69,7 @@ public class level2_int3 extends AppCompatActivity {
             }
         }.start();
 
-        dbHelper = new DBHelper(this);
+        //dbHelper = new DBHelper(this);
 
         home2 = findViewById(R.id.Iv1);
 

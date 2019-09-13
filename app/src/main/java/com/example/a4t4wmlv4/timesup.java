@@ -3,51 +3,54 @@ package com.example.a4t4wmlv4;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import java.util.Timer;
-
 public class timesup extends AppCompatActivity {
 
-    private Button goback;
-    public static MediaPlayer player1;
-    public static MediaPlayer player;
+    Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timesup);
 
+        btn = (Button) findViewById(R.id.goback);
 
-
-        player1 = new MediaPlayer();
-        player1 = MediaPlayer.create(this, R.raw.error);
-        //player.setLooping(true);
-        player1.start();
-
-        goback = (Button) findViewById(R.id.goback);
-
-        goback.setOnClickListener(new View.OnClickListener() {
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                NextPage(view);
-                player.pause();
-
+                goBack(view);
             }
         });
+
+
     }
 
-    final Timer timer = new Timer();
-    public void NextPage (View v) {
-        if (v == goback) {
-            Intent intent = new Intent(this, level2.class);
+    public void goBack(View v)
+    {
+        Intent a = getIntent();
+        String previous = a.getStringExtra("From_activity");
+        if(previous == "01") {
+            Intent intent = new Intent(this, level04_01.class);
             startActivity(intent);
-            player1.pause();
-            timer.cancel();
+        }
+        else if(previous == "02")
+        {
+            Intent intent = new Intent(this, level04S2.class);
+            startActivity(intent);
+        }
+        else if(previous == "03")
+        {
+            Intent intent = new Intent(this, level04_int03.class);
+            startActivity(intent);
+        }
+        else if(previous == "04")
+        {
+            Intent intent = new Intent(this, level04_int04.class);
+            startActivity(intent);
         }
     }
 }

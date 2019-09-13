@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CorrectAnswer01"
+    android:orientation="vertical"
+    android:background="@drawable/bgapp">
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/wldon"
+            android:textSize="36sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="#fff"
+            />
+    </LinearLayout>
+   <TextView
+       android:layout_marginTop="50dp"
+       android:id="@+id/points"
+       android:layout_width="250dp"
+       android:layout_height="250dp"
+       android:textColor="#fff"
+       android:textSize="34sp"
+       android:layout_gravity="center"
+       android:gravity="center"
+       android:background="@drawable/star"
+
+       />
+    <LinearLayout
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:layout_width="250dp"
+        android:layout_height="250dp">
+        <Button
+            android:id="@+id/next1st"
+            android:layout_width="250dp"
+            android:layout_height="100dp"
+            android:background="@drawable/bgbtn"
+            android:text="@string/next"
+            android:textSize="28dp"
+            android:textColor="@color/colorPurple"/>
+    </LinearLayout>
+
+</LinearLayout>
+

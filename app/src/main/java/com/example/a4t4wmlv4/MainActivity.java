@@ -2,99 +2,53 @@ package com.example.a4t4wmlv4;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.content.Intent;
 import android.os.Bundle;
-
-import android.media.MediaPlayer;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+
+import Database.DBHelper;
+
 
 public class MainActivity extends AppCompatActivity {
-    private Button button04 , button03 , button02 , button01;
+    Button log ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final MediaPlayer mplayer = MediaPlayer.create(this,R.raw.background);
+        log = (Button) findViewById(R.id.btn_login);
 
-        mplayer.start();
-
-
-        button01 =(Button) findViewById(R.id.button_to_level01);
-        button02 =(Button) findViewById(R.id.button_to_level2);
-        button03 =(Button) findViewById(R.id.button_to_level03);
-        button04 = (Button) findViewById(R.id.button_to_level04);
-
-        button04.setOnClickListener(new View.OnClickListener() {
+        log.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                switchPage(view);
+                add();
             }
         });
-        button01.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                Intent intent = new Intent(MainActivity.this, level01_Main.class);
-                startActivity(intent);
-            }
-        });
-        button02.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                switchPage(view);
-                mplayer.pause();
+    }
 
-            }
-        });
-//        button03.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                switchPage(view);
-//            }
-//        });
+    public void add()
+    {
+        String uname = ((EditText) findViewById(R.id.nameedit)).toString();
 
-        button03.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        DBHelper db = new DBHelper(this);
 
-                switchPage(view);
-                mplayer.pause();
-            }
-        });
+        db.addname(uname);
+
+        Intent i = new Intent(this,mainMenu.class);
+        i.putExtra("Name" , uname);
+        startActivity(i);
 
 
 
     }
 
-    public void switchPage (View v){
-        if(v == button01) {
-            Intent intent = new Intent(this, level01_Main.class);
-            startActivity(intent);
 
-        }
-        else if(v == button02)
-        {
-            Intent intent = new Intent(this, level2.class);
-            startActivity(intent);
-        }
 
-        else if(v == button03)
-        {
-            Intent intent = new Intent(this, level03_int01.class);
-            startActivity(intent);
-        }
-        else if(v == button04)
-        {
-            //Intent intent = new Intent(this, level4.class);
-            Intent intent = new Intent(this, level04Main.class);
-            startActivity(intent);
-        }
-    }
-    }
-
+}
 

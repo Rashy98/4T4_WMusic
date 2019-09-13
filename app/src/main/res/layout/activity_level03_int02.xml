@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/lvl03"
+    android:background="@drawable/bgapp03"
     tools:context=".level03_int02">
 
     <Button
         android:id="@+id/cnfBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -23,7 +23,8 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText4"
-        app:layout_constraintVertical_bias="0.887" />
+        app:layout_constraintVertical_bias="0.887"
+        android:background="@drawable/bgpink"/>
 
     <EditText
         android:id="@+id/editText4"

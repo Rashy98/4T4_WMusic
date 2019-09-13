@@ -9,20 +9,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".next" />
+        <activity android:name=".mainMenu"></activity>
+        <activity android:name=".FirstPage" />
         <activity android:name=".timesup" />
+        <activity android:name=".loginuser" />
+        <activity android:name=".CorrectAnswer01" />
+
+        <service
+            android:name=".PlayMusic"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".level01_Main" />
         <activity android:name=".level2_int3" />
         <activity android:name=".level2_int1" />
         <activity android:name=".level2_int2" />
         <activity android:name=".level2" />
-        <activity android:name=".level4" />
         <activity android:name=".level1" />
         <activity android:name=".level03_int01" />
         <activity android:name=".level03_int02" />
+        <activity android:name=".level03_int03" />
+        <activity android:name=".level01Int2" />
+        <activity android:name=".level01Int3" />
+        <activity android:name=".level01int4" />
         <activity android:name=".level04Main" />
         <activity android:name=".level04S2" />
         <activity android:name=".level04_int04" />
         <activity android:name=".level04_int03" />
+        <activity android:name=".level04_01" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

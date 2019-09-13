@@ -1,28 +1,44 @@
 package com.example.a4t4wmlv4;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
+import android.database.Cursor;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import Database.DBHelper;
 
 import static com.example.a4t4wmlv4.R.layout.activity_level04_main;
 
 public class level04Main extends AppCompatActivity {
 
     private Button but01 , but02 , but03 , but04 , home;
+    DBHelper db = new DBHelper(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level04_main);
 
-        final MediaPlayer mplayer = MediaPlayer.create(this,R.raw.background);
+        TextView welcomet = (TextView) findViewById(R.id.welcome);
 
-        mplayer.start();
+        //db.readData();
 
-        but01 =(Button) findViewById(R.id.int3);
+//        welcomet.setText(db.readData().charAt(1));
+
+        Intent a = getIntent();
+        String name = a.getStringExtra("Uname");
+        welcomet.setText(name);
+        //setContentView(welcomet);
+
+
+        but01 =(Button) findViewById(R.id.int0104);
         but02 =(Button) findViewById(R.id.int0204);
         but03 =(Button) findViewById(R.id.int0304);
         but04 =(Button) findViewById(R.id.int0404);
@@ -42,7 +58,7 @@ public class level04Main extends AppCompatActivity {
             public void onClick(View view) {
 
                 switchPage(view);
-                mplayer.pause();
+
             }
         });
 
@@ -51,7 +67,7 @@ public class level04Main extends AppCompatActivity {
             public void onClick(View view) {
 
                 switchPage(view);
-                mplayer.pause();
+
             }
         });
         but03.setOnClickListener(new View.OnClickListener() {
@@ -59,7 +75,7 @@ public class level04Main extends AppCompatActivity {
             public void onClick(View view) {
 
                 switchPage(view);
-                mplayer.pause();
+
             }
         });
         but04.setOnClickListener(new View.OnClickListener() {
@@ -67,14 +83,16 @@ public class level04Main extends AppCompatActivity {
             public void onClick(View view) {
 
                 switchPage(view);
-                mplayer.pause();
+
             }
         });
     }
     public void switchPage (View v){
         if(v == but01) {
-            Intent intent = new Intent(this, level4.class);
+            Intent intent = new Intent(this, level04_01.class);
             startActivity(intent);
+
+
         }
         else if(v == but02)
         {
