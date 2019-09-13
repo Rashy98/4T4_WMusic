@@ -21,7 +21,8 @@ public class level03_int02 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                finish();
+                Intent i = new Intent(level03_int02.this, level03_main.class);
+                startActivity(i);
             }
         });
 

@@ -2,6 +2,7 @@ package com.example.a4t4wmlv4;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,7 +22,8 @@ public class level03_int03 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                finish();
+                Intent i = new Intent(level03_int03.this, level03_main.class);
+                startActivity(i);
             }
         });
 
