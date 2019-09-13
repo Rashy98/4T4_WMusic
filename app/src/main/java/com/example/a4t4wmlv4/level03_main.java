@@ -35,7 +35,9 @@ public class level03_main extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                Intent i = new Intent(level03_main.this, mainMenu.class);
+                startActivity(i);
+
             }
         });
         btn1.setOnClickListener(new View.OnClickListener() {

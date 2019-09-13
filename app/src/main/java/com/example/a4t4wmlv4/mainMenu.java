@@ -94,7 +94,7 @@ public class mainMenu extends AppCompatActivity {
 
         else if(v == button03)
         {
-            Intent intent = new Intent(this, level03_int01.class);
+            Intent intent = new Intent(this, level03_main.class);
             startActivity(intent);
         }
         else if(v == button04)
