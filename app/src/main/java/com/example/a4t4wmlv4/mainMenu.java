@@ -45,7 +45,7 @@ public class mainMenu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(mainMenu.this, level01_Main.class);
+                Intent intent = new Intent(mainMenu.this, level1.class);
                 startActivity(intent);
                 //    mplayer.pause();
             }
@@ -82,7 +82,7 @@ public class mainMenu extends AppCompatActivity {
 
     public void switchPage (View v){
         if(v == button01) {
-            Intent intent = new Intent(this, level01_Main.class);
+            Intent intent = new Intent(this, level1.class);
             startActivity(intent);
 
         }

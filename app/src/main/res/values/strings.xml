@@ -86,6 +86,7 @@
     <string name="flipflop" translatable="false">FLIP FLOP</string>
     <string name="wrong">WRONG</string>
     <string name="secondsrem">Seconds remaining</string>
+    <string name="tryagain">TRY AGAIN</string>
 
 
 </resources>
