@@ -12,16 +12,16 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginTop="70dp"
-        android:text="@string/timesup"
         android:gravity="center"
+        android:text="@string/timesup"
         android:textColor="#fff"
-        android:textSize="50dp"
-        />
+        android:textSize="50dp" />
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:src="@drawable/sad"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:src="@drawable/sad" />
 
     <Button
         android:layout_width="150dp"

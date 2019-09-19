@@ -7,9 +7,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.text.format.DateUtils;
 import android.view.View;
 import android.widget.ImageButton;
@@ -39,6 +42,7 @@ public class level2_int1 extends AppCompatActivity {
     int playerPoints = 0 ;
     public static MediaPlayer player;
     boolean isPressed=false;
+    CountDownTimer ctdown;
 
 //    DBHelper dbHelper;
 
@@ -53,7 +57,7 @@ public class level2_int1 extends AppCompatActivity {
         player.start();
 
         final TextView time = (TextView) findViewById(R.id.time);
-        CountDownTimer ctdown = new CountDownTimer(40000,1000) {
+        ctdown = new CountDownTimer(40000,1000) {
             @Override
             public void onTick(long l) {
 
@@ -64,7 +68,9 @@ public class level2_int1 extends AppCompatActivity {
             @Override
             public void onFinish() {
                 Intent a = new Intent(level2_int1.this, timesup.class);
+                a.putExtra("From_activity","lvl2_1");
                 startActivity(a);
+                ctdown.cancel();
 
             }
         }.start();
@@ -313,6 +319,7 @@ public class level2_int1 extends AppCompatActivity {
             iv22.setImageResource(R.drawable.hidden);
             iv23.setImageResource(R.drawable.hidden);
             iv24.setImageResource(R.drawable.hidden);
+            Vibratee();
 
         }
         iv11.setEnabled(true);
@@ -327,20 +334,6 @@ public class level2_int1 extends AppCompatActivity {
         checkEnd();
     }
 
-//    public void round1marks(View view){
-//
-//        String marks = Integer.toString(playerPoints);
-//        String name =  username.getText().toString();
-//
-//        boolean r1m = dbHelper.insertData(name, "1" , marks);
-//
-//        if(r1m == true){
-//            Toast.makeText(this, "Data inserted successfully", Toast.LENGTH_LONG).show();
-//        }
-//        else{
-//            Toast.makeText(this, "Data insert unsuccessfull", Toast.LENGTH_LONG).show();
-//        }
-//    }
     private void checkEnd() {
 
         if(iv11.getVisibility() == View.INVISIBLE &&
@@ -352,7 +345,6 @@ public class level2_int1 extends AppCompatActivity {
                 iv22.getVisibility() == View.INVISIBLE &&
                 iv23.getVisibility() == View.INVISIBLE &&
                 iv24.getVisibility() == View.INVISIBLE ){
-
 
             Intent intent = new Intent(this, next.class);
             String point = Integer.toString(playerPoints);
@@ -370,4 +362,12 @@ public class level2_int1 extends AppCompatActivity {
         sym_108 = R.drawable.sym_108;
 
 
-    }}
+    }
+    private void Vibratee() {
+        if (Build.VERSION.SDK_INT >= 26) {
+            ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(VibrationEffect.createOneShot(150,10));
+        } else {
+            ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
+        }
+    }
+}

@@ -28,10 +28,12 @@
         <activity android:name=".level2_int1" />
         <activity android:name=".level2_int2" />
         <activity android:name=".level2" />
+        <activity android:name=".next" />
         <activity android:name=".level1" />
         <activity android:name=".level03_int01" />
         <activity android:name=".level03_int02" />
         <activity android:name=".level03_int03" />
+        <activity android:name=".level03_main" />
         <activity android:name=".level01Int2" />
         <activity android:name=".level01Int3" />
         <activity android:name=".level01int4" />

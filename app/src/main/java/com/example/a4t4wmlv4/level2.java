@@ -13,7 +13,7 @@ import android.widget.ImageButton;
 
 public class level2 extends AppCompatActivity {
 
-    private Button button1, button2;
+    private Button button1;
     private ImageButton sound;
     public static MediaPlayer player;
     boolean isPressed=false;
@@ -32,7 +32,7 @@ public class level2 extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v) {
-                Intent intent = new Intent(level2.this, MainActivity.class );
+                Intent intent = new Intent(level2.this, mainMenu.class );
                 startActivity(intent);
                 player.pause();
 
@@ -41,19 +41,10 @@ public class level2 extends AppCompatActivity {
         });
 
         button1 = (Button) findViewById(R.id.btn2);
-        button2 =(Button) findViewById(R.id.btn3);
         sound = (ImageButton) findViewById(R.id.sound);
 
 
         button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                NextPage(view);
-                player.pause();
-            }
-        });
-        button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -83,11 +74,6 @@ public class level2 extends AppCompatActivity {
     public void NextPage (View v){
         if(v == button1) {
             Intent intent = new Intent(this, level2_int1.class);
-            startActivity(intent);
-        }
-        else if(v == button2)
-        {
-            Intent intent = new Intent(this, level2.class);
             startActivity(intent);
         }
     }

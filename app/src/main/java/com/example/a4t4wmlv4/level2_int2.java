@@ -6,9 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.text.format.DateUtils;
 import android.view.View;
 import android.widget.ImageButton;
@@ -37,6 +40,7 @@ public class level2_int2 extends AppCompatActivity {
     int playerPoints = 4 ;
     public static MediaPlayer player;
     boolean isPressed=false;
+    CountDownTimer ctdown;
 
     //DBHelper dbHelper;
 
@@ -52,7 +56,7 @@ public class level2_int2 extends AppCompatActivity {
         player.start();
 
         final TextView time = (TextView) findViewById(R.id.time);
-        CountDownTimer ctdown = new CountDownTimer(50000,1000) {
+        ctdown = new CountDownTimer(50000,1000) {
             @Override
             public void onTick(long l) {
 
@@ -63,7 +67,9 @@ public class level2_int2 extends AppCompatActivity {
             @Override
             public void onFinish() {
                 Intent a = new Intent(level2_int2.this, timesup.class);
+                a.putExtra("From_activity","lvl2_1");
                 startActivity(a);
+                ctdown.cancel();
 
             }
         }.start();
@@ -391,6 +397,7 @@ public class level2_int2 extends AppCompatActivity {
             iv32.setImageResource(R.drawable.hidden);
             iv33.setImageResource(R.drawable.hidden);
             iv34.setImageResource(R.drawable.hidden);
+            Vibratee();
 
         }
         iv11.setEnabled(true);
@@ -451,5 +458,12 @@ public class level2_int2 extends AppCompatActivity {
         sym_108 = R.drawable.sym_108;
 
 
+    }
+    private void Vibratee() {
+        if (Build.VERSION.SDK_INT >= 26) {
+            ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(VibrationEffect.createOneShot(150,10));
+        } else {
+            ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
+        }
     }
 }
