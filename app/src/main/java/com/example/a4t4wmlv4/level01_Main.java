@@ -31,9 +31,9 @@ public class level01_Main extends AppCompatActivity {
         });
 
         but01 =(Button) findViewById(R.id.int3);
-        but02 = findViewById(R.id.int0204);
-        but03 =(Button) findViewById(R.id.int0304);
-        but04 =(Button) findViewById(R.id.int0404);
+        but02 = findViewById(R.id.int0203);
+        but03 =(Button) findViewById(R.id.int0303);
+        but04 =(Button) findViewById(R.id.int0403);
 
 
         home = (Button) findViewById(R.id.home);

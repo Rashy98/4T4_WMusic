@@ -8,9 +8,29 @@
     tools:context=".level03_int03">
 
 
+        <TextView
+            android:id="@+id/lvl3time3"
+            android:layout_width="280dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/textView19"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lvl3Homebtn"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.4" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/cnfBtn"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -24,12 +44,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.53"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText3"
+            app:layout_constraintTop_toBottomOf="@+id/editTextMul"
             app:layout_constraintVertical_bias="0.215"
             android:background="@drawable/bgpink"/>
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/editTextMul"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -40,7 +60,6 @@
             android:layout_marginBottom="8dp"
             android:ems="10"
             android:inputType="numberDecimal"
-            android:text="Enter answer"
             android:textColor="@android:color/darker_gray"
             android:textSize="24sp"
             android:textStyle="bold"
