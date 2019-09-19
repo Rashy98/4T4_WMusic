@@ -19,13 +19,14 @@ public class level03_int02 extends AppCompatActivity {
 
     private Button home, ok;
     private double answer = 1.0;
+    CountDownTimer ctdown;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level03_int02);
 
         final TextView time = (TextView) findViewById(R.id.lvl3time2);
-        CountDownTimer ctdown = new CountDownTimer(30000,1000) {
+         ctdown = new CountDownTimer(30000,1000) {
             @Override
             public void onTick(long l) {
 
@@ -67,7 +68,7 @@ public class level03_int02 extends AppCompatActivity {
 
                     Intent intent = new Intent(level03_int02.this, level03_int03.class);
                     startActivity(intent);
-
+                     ctdown.cancel();
                     editText.setText("");
                 }else{
                     Toast.makeText(level03_int02.this, "Wrong answer", Toast.LENGTH_SHORT).show();
