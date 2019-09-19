@@ -27,4 +27,14 @@
     <string name="goback">REJOUER</string>
     <string name="wrong">"FAUX "</string>
     <string name="secondsrem">Secondes restantes</string>
+    <string name="pick01">Choisissez la bonne note</string>
+    <string name="level1main">Choisissez le bon symbole</string>
+    <string name="level03topic">Comptage de la valeur de note</string>
+    <string name="lvl03Topic">Comptage de la valeur de note</string>
+    <string name="lvl03cnf">Prochain</string>
+    <string name="NextR1">Tour 01</string>
+    <string name="NextR2">Tour 02</string>
+    <string name="NextR3">Tour 03</string>
+    <string name="Pnts">"POINTS: "</string>
+    <string name="bck">Retourner</string>
 </resources>

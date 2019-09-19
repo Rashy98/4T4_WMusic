@@ -49,6 +49,7 @@ public class level04S2 extends AppCompatActivity {
             @Override
             public void onFinish() {
                 Intent a = new Intent(level04S2.this,timesup.class);
+                a.putExtra("From_activity","02");
                 startActivity(a);
 
             }

@@ -28,6 +28,7 @@ import Database.DBHelper;
 public class MainActivity extends AppCompatActivity  {
     Button log;
     ImageButton eng, frn;
+    EditText name;
 
 
     @Override
@@ -38,8 +39,9 @@ public class MainActivity extends AppCompatActivity  {
         log = (Button) findViewById(R.id.btn_login);
         eng = (ImageButton) findViewById(R.id.english);
         frn = (ImageButton) findViewById(R.id.french);
+        name = (EditText) findViewById(R.id.nameedit);
 
-        eng.setOnClickListener(new View.OnClickListener() {
+                eng.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setLocale("en");
@@ -61,6 +63,10 @@ public class MainActivity extends AppCompatActivity  {
         });
 
 
+
+
+
+
     }
 
     @Override
@@ -80,18 +86,18 @@ public class MainActivity extends AppCompatActivity  {
         String uname = ((EditText) findViewById(R.id.nameedit)).getText().toString();
         System.out.println(uname);
 
-//        DBAdapter db = new DBAdapter(this);
+        DBAdapter db = new DBAdapter(this);
 
-        //long x = db.insertData(uname, 0, 0);
+        long x = db.insertData(uname, 0, 0);
 
-       // if (x <= 0)
-         //   System.out.println("unsucessful");
-        //else
-         //   System.out.println("Successful");
+        if (x <= 0)
+            System.out.println("unsucessful");
+        else
+           System.out.println("Successful");
 
 
         Intent i = new Intent(this, mainMenu.class);
-        i.putExtra("Name", uname);
+        //i.putExtra("Name", uname);
         startActivity(i);
 
 
