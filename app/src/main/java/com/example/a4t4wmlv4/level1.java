@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.text.format.DateUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -39,30 +42,30 @@ public class level1 extends AppCompatActivity {
 
 
 
-//        final MediaPlayer mplayer = MediaPlayer.create(this,R.raw.background);
-//
-//        mplayer.start();
-//      //sound on off
-//        sound = (Button) findViewById(R.id.soundon);
-//
-//        sound.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                sound.setBackgroundResource(R.drawable.soundoff);
-//
-//                if(isPressed){
-//                    sound.setBackgroundResource(R.drawable.soundoff);
-//                    mplayer.pause();
-//                }
-//                else{
-//                    sound.setBackgroundResource(R.drawable.soundon);
-//                    mplayer.start();
-//                }
-//
-//                isPressed= !isPressed;
-//            }
-//        });
+        final MediaPlayer mplayer = MediaPlayer.create(this,R.raw.background);
+
+        mplayer.start();
+      //sound on off
+        sound = (Button) findViewById(R.id.soundon);
+
+        sound.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                sound.setBackgroundResource(R.drawable.soundoff);
+
+                if(isPressed){
+                    sound.setBackgroundResource(R.drawable.soundoff);
+                    mplayer.pause();
+                }
+                else{
+                    sound.setBackgroundResource(R.drawable.soundon);
+                    mplayer.start();
+                }
+
+                isPressed= !isPressed;
+            }
+        });
 
 
 
@@ -91,7 +94,7 @@ public class level1 extends AppCompatActivity {
 
 
         //adding score
-       // showValue = (TextView) findViewById(R.id.score);
+        showValue = (TextView) findViewById(R.id.score);
 
 
         //back to home
@@ -149,11 +152,11 @@ public class level1 extends AppCompatActivity {
 
         ctdown.cancel();
 
-//
-//        if (counter == 0) {
-//            counter += 10;
-//        }
-//        showValue.setText(Integer.toString(counter));
+
+        if (counter == 0) {
+            counter += 10;
+        }
+        showValue.setText(Integer.toString(counter));
 
 //        String score =  ((TextView) findViewById(R.id.score)).toString();
 //        DBHelper db = new DBHelper(this);
@@ -175,7 +178,17 @@ public class level1 extends AppCompatActivity {
         toast.setView(layout);
         toast.show();
 
+        Vibratee();
 
+
+    }
+
+    private void Vibratee() {
+        if (Build.VERSION.SDK_INT >= 26) {
+            ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(VibrationEffect.createOneShot(150,10));
+        } else {
+            ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
+        }
     }
 
 
