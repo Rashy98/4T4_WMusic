@@ -64,7 +64,7 @@ public class level03_int03 extends AppCompatActivity {
 
                 if(Double.parseDouble(editText.getText().toString()) == answer) {
 
-                    Intent intent = new Intent(level03_int03.this, level03_int02.class);
+                    Intent intent = new Intent(level03_int03.this, level04Main.class);
                     startActivity(intent);
 
                     editText.setText("");
