@@ -3,8 +3,11 @@ package com.example.a4t4wmlv4;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.text.format.DateUtils;
 import android.view.View;
 import android.widget.Button;
@@ -34,6 +37,7 @@ public class level03_int03 extends AppCompatActivity {
             @Override
             public void onFinish() {
                 Intent a = new Intent(level03_int03.this,timesup.class);
+                a.putExtra("From_activity","level3_03");
                 startActivity(a);
 
             }
@@ -67,9 +71,18 @@ public class level03_int03 extends AppCompatActivity {
                 }else{
                     Toast.makeText(level03_int03.this, "Wrong answer", Toast.LENGTH_SHORT).show();
                     editText.setText("");
+                    Vibratee();
                 }
             }
         });
 
     }
+    private void Vibratee() {
+        if (Build.VERSION.SDK_INT >= 26) {
+            ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(VibrationEffect.createOneShot(150,10));
+        } else {
+            ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
+        }
+    }
+
 }
