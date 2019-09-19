@@ -116,7 +116,7 @@ public class level04Main extends AppCompatActivity {
         }
         else if(v == but03)
         {
-            Intent intent = new Intent(this, level04_int03.class);
+            Intent intent = new Intent(this, level03_main.class);
             startActivity(intent);
         }
         else if(v == but04)

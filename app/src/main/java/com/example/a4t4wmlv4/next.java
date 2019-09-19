@@ -19,7 +19,6 @@ public class next extends AppCompatActivity {
     public static MediaPlayer player;
     private TextView score;
     int points;
-    final Timer timer = new Timer();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +42,6 @@ public class next extends AppCompatActivity {
 
                 NextPage(view);
                 player.pause();
-                timer.cancel();
             }
         });
         back.setOnClickListener(new View.OnClickListener() {
@@ -52,7 +50,6 @@ public class next extends AppCompatActivity {
 
                 NextPage(view);
                 player.pause();
-                timer.cancel();
             }
         });
 
@@ -73,24 +70,11 @@ public class next extends AppCompatActivity {
                 Intent intent = new Intent(this, level2_int3.class);
                 startActivity(intent);
             }
-            else if(points == 18){
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(next.this);
-                alertDialogBuilder.setMessage("GAME OVER!")
-                    .setCancelable(false)
+            else if(points == 18) {
 
-                    .setNegativeButton("EXIT", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-
-                            finish();
-                            player.pause();
-
-                        }
-                    });
-            AlertDialog alertDialog = alertDialogBuilder.create();
-            alertDialog.show();
+                Intent intent = new Intent(this, level03_main.class);
+                startActivity(intent);
             }
-
         }
         else if(v == back){
 

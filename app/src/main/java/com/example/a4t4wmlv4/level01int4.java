@@ -38,7 +38,7 @@ public class level01int4 extends AppCompatActivity {
             @Override
             public void onFinish() {
 
-                Intent a = new Intent(level01int4.this, level01_Main.class);
+                Intent a = new Intent(level01int4.this, level1.class);
                 startActivity(a);
 
             }
@@ -49,7 +49,7 @@ public class level01int4 extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(level01int4.this, level01_Main.class);
+                Intent intent = new Intent(level01int4.this, level1.class);
                 startActivity(intent);
             }
         });

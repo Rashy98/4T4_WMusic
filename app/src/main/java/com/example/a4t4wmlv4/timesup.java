@@ -52,5 +52,35 @@ public class timesup extends AppCompatActivity {
             Intent intent = new Intent(this, level04_int04.class);
             startActivity(intent);
         }
+        else if(previous == "level3_01")
+        {
+            Intent intent = new Intent(this, level03_int01.class);
+            startActivity(intent);
+        }
+        else if(previous == "level3_02")
+        {
+            Intent intent = new Intent(this, level03_int02.class);
+            startActivity(intent);
+        }
+        else if(previous == "level3_03")
+        {
+            Intent intent = new Intent(this, level03_int03.class);
+            startActivity(intent);
+        }
+        else if(previous == "lvl2_1")
+        {
+            Intent intent = new Intent(this, level2_int1.class);
+            startActivity(intent);
+        }
+        else if(previous == "lvl2_2")
+        {
+            Intent intent = new Intent(this, level2_int2.class);
+            startActivity(intent);
+        }
+        else if(previous == "lvl2_3")
+        {
+            Intent intent = new Intent(this, level2_int3.class);
+            startActivity(intent);
+        }
     }
 }
