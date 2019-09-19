@@ -32,6 +32,8 @@ public class level04_int04 extends AppCompatActivity {
     TextView textScreen, textQuestion, textTitle , point;
     Animation smallbigforth;
     private int points = 0;
+    CountDownTimer ctdown;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -41,7 +43,7 @@ public class level04_int04 extends AppCompatActivity {
 
 
             final TextView time = (TextView) findViewById(R.id.time4);
-            CountDownTimer ctdown = new CountDownTimer(30000,1000) {
+             ctdown = new CountDownTimer(30000,1000) {
                 @Override
                 public void onTick(long l) {
 
@@ -158,7 +160,7 @@ public class level04_int04 extends AppCompatActivity {
                 Intent a = new Intent(level04_int04.this,CorrectAnswer01.class);
                 a.putExtra("From_activity","04");
                 startActivity(a);
-
+                ctdown.cancel();
                 editText.setText("");
             } else {
                 Toast.makeText(level04_int04.this, "Wrong", Toast.LENGTH_SHORT).show();

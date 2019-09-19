@@ -49,7 +49,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/bgpurple"
             android:textColor="#0D37A0"
-            android:text="SELECT THE 'ONE'"/>
+            android:text="@string/selectTheOne"/>
 
 
         <Button
@@ -70,7 +70,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:background="@drawable/bgpurple"
-            android:text="sum them up!"
+            android:text="@string/sumthemup"
             android:textColor="#0D37A0"/>
 
 
@@ -81,7 +81,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:background="@drawable/bgpurple"
-            android:text="name and score"
+            android:text="@string/namescore"
             android:textColor="#0D37A0"/>
 
     </LinearLayout>

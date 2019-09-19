@@ -6,19 +6,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.text.format.DateUtils;
 import android.view.Gravity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.Random;
+
+import Database.DBHelper;
 
 public class level04_01 extends AppCompatActivity {
 
@@ -29,6 +34,9 @@ public class level04_01 extends AppCompatActivity {
     TextView textScreen, textQuestion, textTitle , point;
     Animation smallbigforth;
     private int points = 0;
+    CountDownTimer ctdown;
+    Vibrator vibrator;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +44,13 @@ public class level04_01 extends AppCompatActivity {
         setContentView(R.layout.activity_level04_01);
 
         final TextView time = (TextView) findViewById(R.id.time);
-        CountDownTimer ctdown = new CountDownTimer(30000,1000) {
+        ctdown = new CountDownTimer(30000,1000) {
             @Override
             public void onTick(long l) {
 
                 TextView time = (TextView) findViewById(R.id.time);
 
-                time.setText("Seconds remaining : " +DateUtils.formatElapsedTime(l/1000));
+                time.setText("Seconds remaining" + DateUtils.formatElapsedTime(l/1000));
             }
 
             @Override
@@ -51,6 +59,7 @@ public class level04_01 extends AppCompatActivity {
                 startActivity(a);
 
             }
+
         }.start();
 
 
@@ -151,14 +160,22 @@ public class level04_01 extends AppCompatActivity {
         if(editText.getText().toString().equals(textAnswer)) {
 //            Toast.makeText(MainActivity.this, "Correct", Toast.LENGTH_SHORT).show();
 
+
             Intent a = new Intent(level04_01.this,CorrectAnswer01.class);
             a.putExtra("From_activity","01");
             startActivity(a);
+            ctdown.cancel();
 
             editText.setText("");
+
+
+
+            DBHelper db = new DBHelper(this);
+            //db.updateItem("Rashini",10);
         } else {
-            Toast.makeText(level04_01.this, "Wrong", Toast.LENGTH_SHORT).show();
+            Toast.makeText(level04_01.this, R.string.wrong, Toast.LENGTH_SHORT).show();
             editText.setText("");
+            Vibratee();
         }
 
         keys = shuffleArray(keys);
@@ -169,7 +186,16 @@ public class level04_01 extends AppCompatActivity {
 
     }
 
+    private void Vibratee() {
+            if (Build.VERSION.SDK_INT >= 26) {
+                ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(VibrationEffect.createOneShot(150,10));
+            } else {
+                ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
+            }
+        }
+    }
 
 
 
-}
+
+

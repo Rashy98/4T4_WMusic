@@ -1,14 +1,22 @@
 package Database;
 
+import android.app.Notification;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Message;
 
 
 public class DBHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME = "MusicApp.db";
+    private static final String DATABASE_NAME = "MusicApp.db";
+    private static final String CREATE_TABLE = "CREATE TABLE " + UsersMaster.Users.TABLE_NAME + " (" + UsersMaster.Users._ID + " INTEGER PRIMARY KEY ," + UsersMaster.Users.COLUMN_NAME_USERNAME + " TEXT," +
+            UsersMaster.Users.COLUMN_NAME_CURRENT_ROUND + " INTEGER," +
+            UsersMaster.Users.COLUMN_NAME_POINTS + " INTEGER)";
+    private static final String DROP_TABLE ="DROP TABLE IF EXISTS "+ UsersMaster.Users.TABLE_NAME;
+
+
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -16,21 +24,26 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLDB) {
-        String SQL_CREATE_ENTRIES =
-                "CREATE TABLE " + UsersMaster.Users.TABLE_NAME + " (" +
-                        UsersMaster.Users._ID + " INTEGER PRIMARY KEY ," +
-                        UsersMaster.Users.COLUMN_NAME_USERNAME + " TEXT," +
-                        UsersMaster.Users.COLUMN_NAME_CURRENT_ROUND + " INTEGER," +
-                        UsersMaster.Users.COLUMN_NAME_POINTS + " INTEGER)";
+        try { sqLDB.execSQL(CREATE_TABLE);
+        } catch (Exception e)
+        {
+            System.out.println(e);
+        }
 
-        sqLDB.execSQL(SQL_CREATE_ENTRIES);
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase sqlDB, int oldVersion, int newVersion) {
+        try
+        {
+             sqlDB.execSQL(DROP_TABLE);
+            onCreate(sqlDB);
+        }catch (Exception e) {
+            System.out.println(e);
+        }
 
     }
-
+/*
     public void addname(String uname){
 
         SQLiteDatabase db = getWritableDatabase();
@@ -75,7 +88,7 @@ public class DBHelper extends SQLiteOpenHelper {
         /*while (cursor.moveToNext()) {
             username = cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.Users.COLUMN_NAME_USERNAME));
             return username;
-        }*/
+        }
 
         return username;
     }
@@ -93,6 +106,13 @@ public class DBHelper extends SQLiteOpenHelper {
         if(count != -1)
             System.out.println("Updated successfully");
     }
+
+    public Cursor getName(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res = db.rawQuery( "SELECT * FROM " + UsersMaster.Users.COLUMN_NAME_USERNAME + " WHERE " +
+                UsersMaster.Users._ID + "=?", new String[] { Integer.toString(id) } );
+        return res;
+    }*/
 
 
 }

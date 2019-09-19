@@ -1,25 +1,25 @@
 <resources>
     <string name="app_name">4T4WMLv4</string>
     <string name="plyBTn">Play</string>
-    <string name="button1">hello</string>
+    <string name="button1" translatable="false">hello</string>
     <string name="lvl4top">Name the notes</string>
-    <string name="ltA">A</string>
-    <string name="ltB">B</string>
-    <string name="ltC">C</string>
-    <string name="lrD">D</string>
-    <string name="ltE">E</string>
-    <string name="ltF">F</string>
-    <string name="ltG">G</string>
+    <string name="ltA" translatable="false">A</string>
+    <string name="ltB" translatable="false">B</string>
+    <string name="ltC" translatable="false">C</string>
+    <string name="lrD" translatable="false">D</string>
+    <string name="ltE" translatable="false">E</string>
+    <string name="ltF" translatable="false">F</string>
+    <string name="ltG" translatable="false">G</string>
     <string name="level04q">🅝🅐🅜🅔 🅣🅗🅔 </string>
-    <string name="lvl4tp2">🅝🅞🅣🅔🅢</string>
-    <string name="blank"></string>
+    <string name="lvl4tp2" translatable="false">🅝🅞🅣🅔🅢</string>
+    <string name="blank" translatable="false"></string>
     <string name="start">START</string>
-    <string name="Quaver1">Quaver</string>
-    <string name="BassClef1">Bass Clef</string>
-    <string name="trebleclef1">Treble Clef</string>
+    <string name="Quaver1" translatable="false">Quaver</string>
+    <string name="BassClef1" translatable="false">Bass Clef</string>
+    <string name="trebleclef1" translatable="false">Treble Clef</string>
     <string name="pick01">Pick the correct note</string>
-    <string name="add">+</string>
-    <string name="equal">=</string>
+    <string name="add" translatable="false">+</string>
+    <string name="equal" translatable="false">=</string>
     <string name="lvl03Topic">NOTE VALUE COUNTING</string>
     <string name="lvl03cnf">NEXT</string>
     <string name="time">TIME</string>
@@ -28,34 +28,34 @@
     <string name="level03topic">ℕ𝕆𝕋𝔼 𝕍𝔸𝕃𝕌𝔼 ℂ𝕆𝕌ℕ𝕋𝕀ℕ𝔾</string>
     <string name="level01topic">𝕊𝔼𝕃𝔼ℂ𝕋 𝕋ℍ𝔼 ℂ𝕆ℝℝ𝔼ℂ𝕋 𝕆ℕ𝔼</string>
     <string name="level02topic">𝔽𝕝𝕚𝕡 𝔸𝕟𝕕 𝕄𝕒𝕥𝕔𝕙</string>
-    <string name="Aflat">A♭</string>
-    <string name="Bflat">B♭</string>
-    <string name="Cflat">C♭</string>
-    <string name="Dflat">D♭</string>
-    <string name="Eflat">E♭</string>
-    <string name="Fflat">F♭</string>
-    <string name="Asharp">A#</string>
-    <string name="Csharp">C#</string>
-    <string name="Dsharp">D#</string>
-    <string name="Esharp">E#</string>
-    <string name="Fsharp">F#</string>
-    <string name="Gsharp">G#</string>
-    <string name="Bsharp">B#</string>
-    <string name="crotchet1">CROTCHET</string>
-    <string name="sub">-</string>
+    <string name="Aflat" translatable="false">A♭</string>
+    <string name="Bflat" translatable="false">B♭</string>
+    <string name="Cflat" translatable="false">C♭</string>
+    <string name="Dflat" translatable="false">D♭</string>
+    <string name="Eflat" translatable="false">E♭</string>
+    <string name="Fflat" translatable="false">F♭</string>
+    <string name="Asharp" translatable="false">A#</string>
+    <string name="Csharp" translatable="false">C#</string>
+    <string name="Dsharp" translatable="false">D#</string>
+    <string name="Esharp" translatable="false">E#</string>
+    <string name="Fsharp" translatable="false">F#</string>
+    <string name="Gsharp" translatable="false">G#</string>
+    <string name="Bsharp" translatable="false">B#</string>
+    <string name="crotchet1" translatable="false">CROTCHET</string>
+    <string name="sub" translatable="false">-</string>
     <string name="NextR1">𝓡𝓸𝓾𝓷𝓭1</string>
     <string name="NextR2">𝓡𝓸𝓾𝓷𝓭2</string>
     <string name="NextR3">𝓡𝓸𝓾𝓷𝓭3</string>
     <string name="bck">𝐆𝐨 𝐁𝐚𝐜𝐤</string>
-    <string name="one">01</string>
-    <string name="two">02</string>
-    <string name="three">03</string>
-    <string name="four">04</string>
-    <string name="mul">x</string>
+    <string name="one" translatable="false">01</string>
+    <string name="two" translatable="false">02</string>
+    <string name="three" translatable="false">03</string>
+    <string name="four" translatable="false">04</string>
+    <string name="mul" translatable="false">x</string>
     <string name="level1main">Pick the correct symbol</string>
     <string name="points">POINTS :</string>
     <string name="crtAns">CORRECT ANSWER!</string>
-    <string name="close">X</string>
+    <string name="close" translatable="false">X</string>
     <string name="ans">Select in the correct order</string>
     <string name="staff">Staff</string>
     <string name="round01">ROUND 01</string>
@@ -77,6 +77,15 @@
     <string name="Lplay">𝑷𝒍𝒂𝒚 𝒂𝒏𝒅 𝑾𝒊𝒏</string>
     <string name="yourscore">𝒀𝒐𝒖𝒓 𝒔𝒄𝒐𝒓𝒆 𝒊𝒔</string>
     <string name="details">𝑺𝒆𝒆 𝒀𝒐𝒖𝒓 𝑹𝒐𝒖𝒏𝒅 𝑺𝒄𝒐𝒓𝒆𝒔</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="name2" translatable="false">Entrez votre nom</string>
+    <string name="namescore">NAME AND SCORE</string>
+    <string name="MsGAME">Music Game</string>
+    <string name="selectTheOne">Select the \"One\"</string>
+    <string name="sumthemup">Sum them up!</string>
+    <string name="flipflop" translatable="false">FLIP FLOP</string>
+    <string name="wrong">WRONG</string>
+    <string name="secondsrem">Seconds remaining</string>
 
 
 </resources>
