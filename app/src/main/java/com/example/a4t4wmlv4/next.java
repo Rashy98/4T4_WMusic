@@ -10,8 +10,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Timer;
+
+import Database.DBHelper;
 
 public class next extends AppCompatActivity {
 
@@ -19,11 +22,15 @@ public class next extends AppCompatActivity {
     public static MediaPlayer player;
     private TextView score;
     int points;
+    DBHelper dbHelper = new DBHelper(this);
+    String userName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_next);
 
+        userName = getIntent().getStringExtra("Name");
         next = (Button) findViewById(R.id.next);
         back = (Button) findViewById(R.id.back);
         score = (TextView) findViewById(R.id.score);
@@ -41,7 +48,7 @@ public class next extends AppCompatActivity {
             public void onClick(View view) {
 
                 NextPage(view);
-                player.pause();
+               // player.pause();
             }
         });
         back.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +67,13 @@ public class next extends AppCompatActivity {
         if(v == next ){
 
             if(points == 4){
+                int result = dbHelper.insertRound2Score(Integer.toString(points), userName);
+                if(result > 0){
+                    Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "Not Updated", Toast.LENGTH_SHORT).show();
+                }
 
                 Intent intent = new Intent(next.this, level2_int2.class);
                 startActivity(intent);

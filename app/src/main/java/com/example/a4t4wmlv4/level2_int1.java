@@ -43,6 +43,7 @@ public class level2_int1 extends AppCompatActivity {
     public static MediaPlayer player;
     boolean isPressed=false;
     CountDownTimer ctdown;
+    String userName;
 
 //    DBHelper dbHelper;
 
@@ -50,6 +51,8 @@ public class level2_int1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_int1);
+
+        userName = getIntent().getStringExtra("Name");
 
         player = new MediaPlayer();
         player = MediaPlayer.create(this, R.raw.background);
@@ -349,6 +352,7 @@ public class level2_int1 extends AppCompatActivity {
             Intent intent = new Intent(this, next.class);
             String point = Integer.toString(playerPoints);
             intent.putExtra("Player Points",point);
+            intent.putExtra("Name", userName);
             startActivity(intent);
 
         }
