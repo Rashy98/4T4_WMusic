@@ -23,6 +23,9 @@ import android.widget.Toast;
 import java.util.Arrays;
 import java.util.Collections;
 
+import Database.DBHelper;
+import Database.UsersMaster;
+
 //import Database.DBHelper;
 
 public class level2_int1 extends AppCompatActivity {
@@ -30,7 +33,6 @@ public class level2_int1 extends AppCompatActivity {
     ImageView iv11,iv12,iv13,iv14,iv21,iv22,iv23,iv24;
     private ImageButton sound;
     private ImageView home2;
-    private TextView username;
 
     Integer[] cardArray = {101,104,105,108,101,104,105,108};
 
@@ -45,14 +47,11 @@ public class level2_int1 extends AppCompatActivity {
     CountDownTimer ctdown;
     String userName;
 
-//    DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_int1);
-
-        userName = getIntent().getStringExtra("Name");
 
         player = new MediaPlayer();
         player = MediaPlayer.create(this, R.raw.background);
@@ -70,19 +69,16 @@ public class level2_int1 extends AppCompatActivity {
             }
             @Override
             public void onFinish() {
+
+                ctdown.cancel();
                 Intent a = new Intent(level2_int1.this, timesup.class);
                 a.putExtra("From_activity","lvl2_1");
                 startActivity(a);
-                ctdown.cancel();
 
             }
         }.start();
 
-        //dbHelper = new DBHelper(this);
-
         home2 = findViewById(R.id.Iv1);
-
-        username = findViewById(R.id.username);
 
         sound = (ImageButton) findViewById(R.id.sound);
 
@@ -96,6 +92,7 @@ public class level2_int1 extends AppCompatActivity {
         iv22 = (ImageView)findViewById(R.id.iv22);
         iv23 = (ImageView)findViewById(R.id.iv23);
         iv24 = (ImageView)findViewById(R.id.iv24);
+
 
         iv11.setTag("0");
         iv12.setTag("1");
@@ -349,6 +346,9 @@ public class level2_int1 extends AppCompatActivity {
                 iv23.getVisibility() == View.INVISIBLE &&
                 iv24.getVisibility() == View.INVISIBLE ){
 
+
+            Intent a = getIntent();
+            userName = a.getStringExtra("Name");
             Intent intent = new Intent(this, next.class);
             String point = Integer.toString(playerPoints);
             intent.putExtra("Player Points",point);

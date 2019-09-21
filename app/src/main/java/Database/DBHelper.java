@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.security.PublicKey;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -109,4 +111,53 @@ public class DBHelper extends SQLiteOpenHelper {
 
         return count;
     }
+
+    public String readInfo(String userName) {
+
+        SQLiteDatabase database = getReadableDatabase();
+
+        String[] projection = {
+
+                UsersMaster.UsersInfo._ID,
+                UsersMaster.UsersInfo.COLUMN_NAME_USERNAME,
+                UsersMaster.UsersInfo.COLUMN_NAME_CURRENT_LEVEL,
+                UsersMaster.UsersInfo.COLUMN_NAME_LEVEL2_SCORE,
+        };
+
+        String selection = UsersMaster.UsersInfo.COLUMN_NAME_USERNAME + "=?";
+        String selectionArgs[] = {userName};
+
+        Cursor cursor = database.query(
+                UsersMaster.UsersInfo.TABLE_NAME,
+                projection,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null
+
+        );
+
+        String username = cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.UsersInfo.COLUMN_NAME_USERNAME));
+
+        cursor.close();
+        return username;
+    }
+
+
+//        // Updating Employee
+//        public int insertRound2Score(String name , String score) {
+//
+//            SQLiteDatabase database = getReadableDatabase();
+//
+//            ContentValues values = new ContentValues();
+//            values.put(UsersMaster.UsersInfo.COLUMN_NAME_USERNAME, name);
+//            values.put(UsersMaster.UsersInfo.COLUMN_NAME_LEVEL2_SCORE, score);
+//            values.put(UsersMaster.UsersInfo.COLUMN_NAME_CURRENT_LEVEL, "LEVEL_2");
+//
+//            // updating row
+//            return database.update(UsersMaster.UsersInfo.TABLE_NAME, values,
+//                    UsersMaster.UsersInfo.COLUMN_NAME_USERNAME + "=?",new String[] { String.valueOf(name)});
+//
+//    }
 }

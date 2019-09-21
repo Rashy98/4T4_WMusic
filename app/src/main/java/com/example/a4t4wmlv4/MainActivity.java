@@ -101,12 +101,15 @@ public class MainActivity extends AppCompatActivity  {
                 System.out.println("Successful");
                 Toast.makeText(getApplicationContext(), "INSERTED", Toast.LENGTH_SHORT).show();
             }
+            Intent i = new Intent(this, mainMenu.class);
+            i.putExtra("Name", uname);
+            startActivity(i);
         }
 
 
-        Intent i = new Intent(this, mainMenu.class);
-        //i.putExtra("Name", uname);
-        startActivity(i);
+//        Intent i = new Intent(this, mainMenu.class);
+//        //i.putExtra("Name", uname);
+//        startActivity(i);
 
 
     }
