@@ -15,15 +15,24 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import Database.DBHelper;
+
 public class level03_int03 extends AppCompatActivity {
 
     private Button home, ok;
     private double answer = 0.25;
+    String userName;
+    int points = 0;
     CountDownTimer ctdown;
+    DBHelper db = new DBHelper(this);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level03_int03);
+
+        points = getIntent().getIntExtra("points", 0);
+        userName = getIntent().getStringExtra("uName");
 
         final TextView time = (TextView) findViewById(R.id.lvl3time3);
          ctdown = new CountDownTimer(30000,1000) {
@@ -52,6 +61,7 @@ public class level03_int03 extends AppCompatActivity {
 
                 Intent i = new Intent(level03_int03.this, level03_main.class);
                 startActivity(i);
+                ctdown.cancel();
             }
         });
 
@@ -64,10 +74,13 @@ public class level03_int03 extends AppCompatActivity {
                 EditText editText = findViewById(R.id.editTextMul);
 
                 if(Double.parseDouble(editText.getText().toString()) == answer) {
-
+                    points = points + 4;
                     Intent intent = new Intent(level03_int03.this, level04Main.class);
+                    intent.putExtra("uName", userName);
+                    //db.updateLevel3Score(points, userName);
                     startActivity(intent);
                     ctdown.cancel();
+
                     editText.setText("");
                 }else{
                     Toast.makeText(level03_int03.this, "Wrong answer", Toast.LENGTH_SHORT).show();

@@ -24,13 +24,13 @@
         android:src="@drawable/sad" />
 
     <Button
+        android:id="@+id/goback"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:background="@drawable/goback"
-        android:layout_marginTop="50dp"
         android:layout_gravity="center"
-        android:id="@+id/goback"
-        />
+        android:layout_marginTop="50dp"
+        android:background="@drawable/goback"
+        android:onClick="goBack" />
     <TextView
         android:layout_width="150dp"
         android:layout_height="25dp"

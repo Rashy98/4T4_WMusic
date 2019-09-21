@@ -100,6 +100,7 @@ public class mainMenu extends AppCompatActivity {
         else if(v == button03)
         {
             Intent intent = new Intent(this, level03_main.class);
+            intent.putExtra("UName", userName);
             startActivity(intent);
         }
         else if(v == button04)

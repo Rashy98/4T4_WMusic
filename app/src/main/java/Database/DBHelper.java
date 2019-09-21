@@ -28,7 +28,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 + UsersMaster.UsersInfo.COLUMN_NAME_CURRENT_LEVEL + " TEXT,"
                 + UsersMaster.UsersInfo.COLUMN_NAME_LEVEL1_SCORE + " TEXT,"
                 + UsersMaster.UsersInfo.COLUMN_NAME_LEVEL2_SCORE + " TEXT,"
-                + UsersMaster.UsersInfo.COLUMN_NAME_LEVEL3_SCORE + " TEXT,"
+                + UsersMaster.UsersInfo.COLUMN_NAME_LEVEL3_SCORE + " INTEGER,"
                 + UsersMaster.UsersInfo.COLUMN_NAME_LEVEL4_SCORE + " TEXT)";
 
         db.execSQL(SQL_CREATE_USER_INFO);
@@ -108,5 +108,22 @@ public class DBHelper extends SQLiteOpenHelper {
         );
 
         return count;
+    }
+
+    public void updateLevel3Score(int score, String usn){
+        SQLiteDatabase db = getReadableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(UsersMaster.UsersInfo.COLUMN_NAME_LEVEL3_SCORE, score);
+
+        String selection = UsersMaster.UsersInfo.COLUMN_NAME_USERNAME + "LIKE ?";
+        String[] selectionArgs = {usn};
+
+        int count = db.update(
+                UsersMaster.UsersInfo.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs
+        );
     }
 }
