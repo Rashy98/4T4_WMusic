@@ -6,14 +6,15 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import java.security.PublicKey;
 
 public class DBHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "Music.db";
     public static final String LEVEL_1 = "Level1";
     public static final String LEVEL_2 = "Level2";
+    public static final String LEVEL_3 = "Level3";
     public static final String DEFAULT_SCORE = "0";
+    public static final int LEVEL_3_DEFAULT_SCORE = 0;
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -28,7 +29,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 + UsersMaster.UsersInfo.COLUMN_NAME_CURRENT_LEVEL + " TEXT,"
                 + UsersMaster.UsersInfo.COLUMN_NAME_LEVEL1_SCORE + " TEXT,"
                 + UsersMaster.UsersInfo.COLUMN_NAME_LEVEL2_SCORE + " TEXT,"
-                + UsersMaster.UsersInfo.COLUMN_NAME_LEVEL3_SCORE + " TEXT,"
+                + UsersMaster.UsersInfo.COLUMN_NAME_LEVEL3_SCORE + " INTEGER,"
                 + UsersMaster.UsersInfo.COLUMN_NAME_LEVEL4_SCORE + " TEXT)";
 
         db.execSQL(SQL_CREATE_USER_INFO);
@@ -109,4 +110,57 @@ public class DBHelper extends SQLiteOpenHelper {
 
         return count;
     }
+
+    public int insertRound3Score(int score, String userName){
+        SQLiteDatabase database = getReadableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(UsersMaster.UsersInfo.COLUMN_NAME_LEVEL3_SCORE, score);
+        values.put(UsersMaster.UsersInfo.COLUMN_NAME_CURRENT_LEVEL, LEVEL_3);
+
+        String selection = UsersMaster.UsersInfo.COLUMN_NAME_USERNAME + "=?";
+        String selectionArgs[] = {userName};
+
+        int count = database.update(
+                UsersMaster.UsersInfo.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs
+        );
+
+        return count;
+    }
+
+    public String readInfo(String userName) {
+
+        SQLiteDatabase database = getReadableDatabase();
+
+        String[] projection = {
+
+                UsersMaster.UsersInfo._ID,
+                UsersMaster.UsersInfo.COLUMN_NAME_USERNAME,
+                UsersMaster.UsersInfo.COLUMN_NAME_CURRENT_LEVEL,
+                UsersMaster.UsersInfo.COLUMN_NAME_LEVEL2_SCORE,
+        };
+
+        String selection = UsersMaster.UsersInfo.COLUMN_NAME_USERNAME + "=?";
+        String selectionArgs[] = {userName};
+
+        Cursor cursor = database.query(
+                UsersMaster.UsersInfo.TABLE_NAME,
+                projection,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null
+
+        );
+
+        String username = cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.UsersInfo.COLUMN_NAME_USERNAME));
+
+        cursor.close();
+        return username;
+    }
+
 }

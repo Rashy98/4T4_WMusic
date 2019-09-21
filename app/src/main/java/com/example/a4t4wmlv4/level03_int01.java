@@ -16,16 +16,24 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import Database.DBHelper;
+
 public class level03_int01 extends AppCompatActivity {
 
     private Button home, ok;
     private double answer = 4.25;
+    private int points = 0;
+    String userName;
     CountDownTimer ctdown;
+    DBHelper db = new DBHelper(this);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level03_int01);
+
+        userName = getIntent().getStringExtra("uName");
 
         final TextView time = (TextView) findViewById(R.id.lvl3time1);
          ctdown = new CountDownTimer(30000,1000) {
@@ -55,6 +63,7 @@ public class level03_int01 extends AppCompatActivity {
 
                 Intent i = new Intent(level03_int01.this, level03_main.class);
                 startActivity(i);
+                ctdown.cancel();
             }
         });
 
@@ -67,8 +76,17 @@ public class level03_int01 extends AppCompatActivity {
                 EditText editText = findViewById(R.id.editTextSum);
 
                 if(Double.parseDouble(editText.getText().toString()) == answer) {
-
+                    points = 3;
                     Intent intent = new Intent(level03_int01.this, level03_int02.class);
+                    intent.putExtra("points", points);
+                    intent.putExtra("uName", userName);
+                    int result = db.insertRound3Score(points, userName);
+                    if(result > 0){
+                        Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        Toast.makeText(getApplicationContext(), "Not Updated", Toast.LENGTH_SHORT).show();
+                    }
                     startActivity(intent);
                     ctdown.cancel();
 

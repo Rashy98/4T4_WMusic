@@ -13,12 +13,15 @@ import Database.DBHelper;
 public class level03_main extends AppCompatActivity {
 
     private Button btn1, btn2, btn3, home;
+    String userName;
     DBHelper db = new DBHelper(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level03_main);
+
+        userName = getIntent().getStringExtra("UName");
 
         TextView welcome = findViewById(R.id.welcome);
 
@@ -65,14 +68,17 @@ public class level03_main extends AppCompatActivity {
     public void switchPage(View v){
         if(v == btn1){
             Intent i = new Intent(this, level03_int01.class);
+            i.putExtra("uName", userName);
             startActivity(i);
         }
         else if(v == btn2){
             Intent i = new Intent(this, level03_int02.class);
+            i.putExtra("uName", userName);
             startActivity(i);
         }
         else if(v == btn3){
             Intent i = new Intent(this, level03_int03.class);
+            i.putExtra("uName", userName);
             startActivity(i);
         }
     }

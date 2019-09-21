@@ -58,12 +58,12 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="115dp"
-            android:layout_marginLeft="115dp"
-            android:layout_marginTop="79dp"
-            android:layout_marginEnd="18dp"
-            android:layout_marginRight="18dp"
-            android:layout_marginBottom="79dp"
+            android:layout_marginStart="131dp"
+            android:layout_marginLeft="131dp"
+            android:layout_marginTop="97dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginBottom="61dp"
             android:text="@string/NextR1"
             android:textColor="#E91E63"
             android:textSize="30sp" />
@@ -122,18 +122,6 @@
             android:background="@android:color/background_light"
             android:src="@drawable/sound" />
 
-        <TextView
-            android:id="@+id/username"
-            android:layout_width="145dp"
-            android:layout_height="39dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="137dp"
-            android:layout_marginRight="137dp"
-            android:layout_marginBottom="155dp"
-            android:textColor="#530361"
-            android:textSize="18sp" />
     </RelativeLayout>
 
 </RelativeLayout>
