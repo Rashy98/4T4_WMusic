@@ -28,7 +28,7 @@ public class level2_int2 extends AppCompatActivity {
     ImageView iv11,iv12,iv13,iv14,iv21,iv22,iv23,iv24,iv31,iv32,iv33,iv34;
     private ImageButton sound;
     private ImageView home2;
-    private TextView username;
+    //private TextView username;
 
     Integer[] cardArray = {101,105,103,102,108,106,101,102,103,106,105,108};
 
@@ -41,6 +41,7 @@ public class level2_int2 extends AppCompatActivity {
     public static MediaPlayer player;
     boolean isPressed=false;
     CountDownTimer ctdown;
+    String userName;
 
     //DBHelper dbHelper;
 
@@ -79,7 +80,7 @@ public class level2_int2 extends AppCompatActivity {
 
         home2 = findViewById(R.id.Iv1);
 
-        username = findViewById(R.id.username);
+       // username = findViewById(R.id.username);
 
         sound = (ImageButton) findViewById(R.id.sound);
 
@@ -415,13 +416,7 @@ public class level2_int2 extends AppCompatActivity {
 
         checkEnd();
     }
-//    public void round2marks(View view){
-//
-//        String marks = Integer.toString(playerPoints);
-//        String name =  username.getText().toString();
-//
-//        boolean r1m = dbHelper.insertData(name, "2" , marks);
-//    }
+
     private void checkEnd() {
 
         if(iv11.getVisibility() == View.INVISIBLE &&
@@ -439,9 +434,12 @@ public class level2_int2 extends AppCompatActivity {
                 iv34.getVisibility() == View.INVISIBLE ){
 
 
+            Intent a = getIntent();
+            userName = a.getStringExtra("Name");
             Intent intent = new Intent(this, next.class);
             String point = Integer.toString(playerPoints);
             intent.putExtra("Player Points",point);
+            intent.putExtra("Name", userName);
             startActivity(intent);
         }
 

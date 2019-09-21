@@ -30,7 +30,9 @@ public class next extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_next);
 
-        userName = getIntent().getStringExtra("Name");
+        Intent a = getIntent();
+        userName = a.getStringExtra("Name");
+
         next = (Button) findViewById(R.id.next);
         back = (Button) findViewById(R.id.back);
         score = (TextView) findViewById(R.id.score);
@@ -48,7 +50,7 @@ public class next extends AppCompatActivity {
             public void onClick(View view) {
 
                 NextPage(view);
-               // player.pause();
+                player.pause();
             }
         });
         back.setOnClickListener(new View.OnClickListener() {
@@ -81,10 +83,26 @@ public class next extends AppCompatActivity {
             }
             else if(points == 10){
 
+//                int result = dbHelper.insertRound2Score(Integer.toString(points), userName);
+//                if(result > 0){
+//                    Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_SHORT).show();
+//                }
+//                else {
+//                    Toast.makeText(getApplicationContext(), "Not Updated", Toast.LENGTH_SHORT).show();
+//                }
+
                 Intent intent = new Intent(this, level2_int3.class);
                 startActivity(intent);
             }
             else if(points == 18) {
+
+//                int result = dbHelper.insertRound2Score(Integer.toString(points), userName);
+//                if(result > 0){
+//                    Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_SHORT).show();
+//                }
+//                else {
+//                    Toast.makeText(getApplicationContext(), "Not Updated", Toast.LENGTH_SHORT).show();
+//                }
 
                 Intent intent = new Intent(this, level03_main.class);
                 startActivity(intent);

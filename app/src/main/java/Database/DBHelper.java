@@ -7,13 +7,17 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.security.PublicKey;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "Music.db";
     public static final String LEVEL_1 = "Level1";
     public static final String LEVEL_2 = "Level2";
+    public static final String LEVEL_3 = "Level2";
     public static final String DEFAULT_SCORE = "0";
+    public static final int LEVEL_3_DEFAULT_SCORE = 0;
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -110,20 +114,72 @@ public class DBHelper extends SQLiteOpenHelper {
         return count;
     }
 
-    public void updateLevel3Score(int score, String usn){
-        SQLiteDatabase db = getReadableDatabase();
+    public int insertRound3Score(int score, String userName){
+        SQLiteDatabase database = getReadableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(UsersMaster.UsersInfo.COLUMN_NAME_LEVEL3_SCORE, score);
+        values.put(UsersMaster.UsersInfo.COLUMN_NAME_CURRENT_LEVEL, LEVEL_3);
 
-        String selection = UsersMaster.UsersInfo.COLUMN_NAME_USERNAME + "LIKE ?";
-        String[] selectionArgs = {usn};
+        String selection = UsersMaster.UsersInfo.COLUMN_NAME_USERNAME + "=?";
+        String selectionArgs[] = {userName};
 
-        int count = db.update(
+        int count = database.update(
                 UsersMaster.UsersInfo.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs
         );
+
+        return count;
     }
+
+    public String readInfo(String userName) {
+
+        SQLiteDatabase database = getReadableDatabase();
+
+        String[] projection = {
+
+                UsersMaster.UsersInfo._ID,
+                UsersMaster.UsersInfo.COLUMN_NAME_USERNAME,
+                UsersMaster.UsersInfo.COLUMN_NAME_CURRENT_LEVEL,
+                UsersMaster.UsersInfo.COLUMN_NAME_LEVEL2_SCORE,
+        };
+
+        String selection = UsersMaster.UsersInfo.COLUMN_NAME_USERNAME + "=?";
+        String selectionArgs[] = {userName};
+
+        Cursor cursor = database.query(
+                UsersMaster.UsersInfo.TABLE_NAME,
+                projection,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null
+
+        );
+
+        String username = cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.UsersInfo.COLUMN_NAME_USERNAME));
+
+        cursor.close();
+        return username;
+    }
+
+
+//        // Updating Employee
+//        public int insertRound2Score(String name , String score) {
+//
+//            SQLiteDatabase database = getReadableDatabase();
+//
+//            ContentValues values = new ContentValues();
+//            values.put(UsersMaster.UsersInfo.COLUMN_NAME_USERNAME, name);
+//            values.put(UsersMaster.UsersInfo.COLUMN_NAME_LEVEL2_SCORE, score);
+//            values.put(UsersMaster.UsersInfo.COLUMN_NAME_CURRENT_LEVEL, "LEVEL_2");
+//
+//            // updating row
+//            return database.update(UsersMaster.UsersInfo.TABLE_NAME, values,
+//                    UsersMaster.UsersInfo.COLUMN_NAME_USERNAME + "=?",new String[] { String.valueOf(name)});
+//
+//    }
 }

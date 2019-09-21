@@ -77,7 +77,13 @@ public class level03_int03 extends AppCompatActivity {
                     points = points + 4;
                     Intent intent = new Intent(level03_int03.this, level04Main.class);
                     intent.putExtra("uName", userName);
-                    //db.updateLevel3Score(points, userName);
+                    int result = db.insertRound3Score(points, userName);
+                    if(result > 0){
+                        Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        Toast.makeText(getApplicationContext(), "Not Updated", Toast.LENGTH_SHORT).show();
+                    }
                     startActivity(intent);
                     ctdown.cancel();
 

@@ -10,21 +10,27 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
+
+import Database.DBHelper;
+import Database.UsersMaster;
 
 public class level2 extends AppCompatActivity {
 
     private Button button1;
     private ImageButton sound;
+    private TextView userN;
     public static MediaPlayer player;
     boolean isPressed=false;
-    String userName;
+    String name;
+
+    private DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2);
 
-        userName = getIntent().getStringExtra("Name");
         player = new MediaPlayer();
         player = MediaPlayer.create(this, R.raw.background);
         //player.setLooping(true);
@@ -45,6 +51,10 @@ public class level2 extends AppCompatActivity {
         button1 = (Button) findViewById(R.id.btn2);
         sound = (ImageButton) findViewById(R.id.sound);
 
+        Intent a = getIntent();
+        name = a.getStringExtra("Name");
+        userN = (TextView) findViewById(R.id.username);
+        userN.setText("Good Luck "+name+ "..");
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,12 +81,13 @@ public class level2 extends AppCompatActivity {
             }
         });
 
+
     }
 
     public void NextPage (View v){
         if(v == button1) {
             Intent intent = new Intent(this, level2_int1.class);
-            intent.putExtra("Name", userName);
+            intent.putExtra("Name" , name);
             startActivity(intent);
         }
     }
