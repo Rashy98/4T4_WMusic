@@ -10,6 +10,8 @@ import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.text.format.DateUtils;
 import android.view.Gravity;
 import android.view.View;
@@ -23,6 +25,8 @@ import android.widget.Toast;
 
 import java.util.Random;
 
+import Database.DBHelper;
+
 public class level04_int03 extends AppCompatActivity {
 
     private Button home;
@@ -34,14 +38,16 @@ public class level04_int03 extends AppCompatActivity {
     Animation smallbigforth;
     private int points = 0;
     CountDownTimer ctdown;
+    MediaPlayer mp;
+    String userName;
+    DBHelper db = new DBHelper(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level04_int03);
-        final MediaPlayer mplayer = MediaPlayer.create(this,R.raw.background);
+        userName = getIntent().getStringExtra("uName");
 
-        mplayer.start();
 
         home = (Button) findViewById(R.id.homel403);
 
@@ -50,10 +56,11 @@ public class level04_int03 extends AppCompatActivity {
             public void onClick(View view) {
 
                 finish();
-                mplayer.pause();
+
             }
         });
 
+        //Remaining time handler
         final TextView time = (TextView) findViewById(R.id.time);
          ctdown = new CountDownTimer(30000,1000) {
             @Override
@@ -73,9 +80,16 @@ public class level04_int03 extends AppCompatActivity {
             }
         }.start();
 
+        //background music
+        mp = new MediaPlayer();
+        mp = MediaPlayer.create(this, R.raw.background);
+        mp.start();
 
+
+        //animation of buttons
         smallbigforth = AnimationUtils.loadAnimation(this, R.anim.smallbigforth);
 
+        //shuffle the letters
         keys = shuffleArray(keys);
 
         for (String key : keys) {
@@ -168,17 +182,26 @@ public class level04_int03 extends AppCompatActivity {
         LinearLayout linearLayout = findViewById(R.id.layoutParent);
 
         if(editText.getText().toString().equals(textAnswer)) {
-//            Toast.makeText(MainActivity.this, "Correct", Toast.LENGTH_SHORT).show();
-
-            Intent a = new Intent(level04_int03.this,CorrectAnswer01.class);
-            a.putExtra("From_activity","03");
-            startActivity(a);
+            points = 30;
+            Intent intent = new Intent(level04_int03.this, CorrectAnswer01.class);
+            intent.putExtra("From_activity","03");
+            intent.putExtra("points", points);
+            intent.putExtra("uName", userName);
+            int result = db.insertRound4Score(points, userName);
+            if(result > 0){
+                Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Toast.makeText(getApplicationContext(), "Not Updated", Toast.LENGTH_SHORT).show();
+            }
+            startActivity(intent);
             ctdown.cancel();
-
+            mp.stop();
             editText.setText("");
         } else {
             Toast.makeText(level04_int03.this, "Wrong", Toast.LENGTH_SHORT).show();
             editText.setText("");
+            Vibratee();
         }
 
         keys = shuffleArray(keys);
@@ -189,6 +212,15 @@ public class level04_int03 extends AppCompatActivity {
 
     }
 
+    private void Vibratee() {
+        if (Build.VERSION.SDK_INT >= 26) {
+            ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(VibrationEffect.createOneShot(150,10));
+        } else {
+            ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
+        }
+    }
 }
+
+
 
 

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -35,12 +36,16 @@ public class level04_01 extends AppCompatActivity {
     private int points = 0;
     CountDownTimer ctdown;
     Vibrator vibrator;
+    MediaPlayer mp;
+    String userName;
+    DBHelper db = new DBHelper(this);
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level04_01);
+        userName = getIntent().getStringExtra("Name");
 
         final TextView time = (TextView) findViewById(R.id.time);
         ctdown = new CountDownTimer(30000,1000) {
@@ -61,6 +66,11 @@ public class level04_01 extends AppCompatActivity {
             }
 
         }.start();
+
+        mp = new MediaPlayer();
+        mp = MediaPlayer.create(this, R.raw.background);
+        //player.setLooping(true);
+        mp.start();
 
 
 
@@ -158,20 +168,22 @@ public class level04_01 extends AppCompatActivity {
         LinearLayout linearLayout = findViewById(R.id.layoutParent);
 
         if(editText.getText().toString().equals(textAnswer)) {
-//            Toast.makeText(MainActivity.this, "Correct", Toast.LENGTH_SHORT).show();
-
-
-            Intent a = new Intent(level04_01.this,CorrectAnswer01.class);
-            a.putExtra("From_activity","01");
-            startActivity(a);
+            points = 10;
+            Intent intent = new Intent(level04_01.this, CorrectAnswer01.class);
+            intent.putExtra("From_activity","01");
+            intent.putExtra("points", points);
+            intent.putExtra("uName", userName);
+            int result = db.insertRound4Score(points, userName);
+            if(result > 0){
+                Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Toast.makeText(getApplicationContext(), "Not Updated", Toast.LENGTH_SHORT).show();
+            }
+            startActivity(intent);
             ctdown.cancel();
-
+            mp.stop();
             editText.setText("");
-
-
-
-            DBHelper db = new DBHelper(this);
-            //db.updateItem("Rashini",10);
         } else {
             Toast.makeText(level04_01.this, R.string.wrong, Toast.LENGTH_SHORT).show();
             editText.setText("");
@@ -187,6 +199,7 @@ public class level04_01 extends AppCompatActivity {
     }
 
     private void Vibratee() {
+            System.out.println("vibrated");
             if (Build.VERSION.SDK_INT >= 26) {
                 ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(VibrationEffect.createOneShot(150,10));
             } else {

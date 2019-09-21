@@ -87,6 +87,8 @@
     <string name="wrong">WRONG</string>
     <string name="secondsrem">Seconds remaining</string>
     <string name="tryagain">TRY AGAIN</string>
+    <string name="title_activity_final_page">finalPage</string>
+    <string name="youdid">YOU DID IT!!</string>
 
 
 </resources>

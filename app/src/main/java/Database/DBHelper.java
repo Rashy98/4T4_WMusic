@@ -13,6 +13,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String LEVEL_1 = "Level1";
     public static final String LEVEL_2 = "Level2";
     public static final String LEVEL_3 = "Level3";
+    public static final String LEVEL_4 = "Level4";
     public static final String DEFAULT_SCORE = "0";
     public static final int LEVEL_3_DEFAULT_SCORE = 0;
 
@@ -117,6 +118,26 @@ public class DBHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(UsersMaster.UsersInfo.COLUMN_NAME_LEVEL3_SCORE, score);
         values.put(UsersMaster.UsersInfo.COLUMN_NAME_CURRENT_LEVEL, LEVEL_3);
+
+        String selection = UsersMaster.UsersInfo.COLUMN_NAME_USERNAME + "=?";
+        String selectionArgs[] = {userName};
+
+        int count = database.update(
+                UsersMaster.UsersInfo.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs
+        );
+
+        return count;
+    }
+
+    public int insertRound4Score(int score, String userName){
+        SQLiteDatabase database = getReadableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(UsersMaster.UsersInfo.COLUMN_NAME_LEVEL4_SCORE, score);
+        values.put(UsersMaster.UsersInfo.COLUMN_NAME_CURRENT_LEVEL, LEVEL_4);
 
         String selection = UsersMaster.UsersInfo.COLUMN_NAME_USERNAME + "=?";
         String selectionArgs[] = {userName};

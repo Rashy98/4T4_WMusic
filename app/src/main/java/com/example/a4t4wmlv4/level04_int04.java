@@ -6,9 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.text.format.DateUtils;
 import android.view.Gravity;
 import android.view.View;
@@ -22,17 +25,22 @@ import android.widget.Toast;
 
 import java.util.Random;
 
+import Database.DBHelper;
+
 public class level04_int04 extends AppCompatActivity {
 
     private Button home;
     private int presCounter = 0;
     private int maxPresCounter = 4;
-    private String[] keys = {"G", "D#", "A♭", "D", "G#" , "F#"};
-    private String textAnswer = "A♭DGG#";
+    private String[] keys = {"G", "D#", "A♭", "D", "E#" , "F#"};
+    private String textAnswer = "A♭DGE#";
     TextView textScreen, textQuestion, textTitle , point;
     Animation smallbigforth;
     private int points = 0;
     CountDownTimer ctdown;
+    MediaPlayer mp;
+    String userName;
+    DBHelper db = new DBHelper(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +48,7 @@ public class level04_int04 extends AppCompatActivity {
 
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_level04_int04);
-
+            userName = getIntent().getStringExtra("uName");
 
             final TextView time = (TextView) findViewById(R.id.time4);
              ctdown = new CountDownTimer(30000,1000) {
@@ -60,6 +68,11 @@ public class level04_int04 extends AppCompatActivity {
 
                 }
             }.start();
+
+        mp = new MediaPlayer();
+        mp = MediaPlayer.create(this, R.raw.background);
+        //player.setLooping(true);
+        mp.start();
 
 
             smallbigforth = AnimationUtils.loadAnimation(this, R.anim.smallbigforth);
@@ -156,16 +169,26 @@ public class level04_int04 extends AppCompatActivity {
             LinearLayout linearLayout = findViewById(R.id.layoutParent);
 
             if(editText.getText().toString().equals(textAnswer)) {
-//            Toast.makeText(MainActivity.this, "Correct", Toast.LENGTH_SHORT).show();
-
-                Intent a = new Intent(level04_int04.this,CorrectAnswer01.class);
-                a.putExtra("From_activity","04");
-                startActivity(a);
+                points = 40;
+                Intent intent = new Intent(level04_int04.this, CorrectAnswer01.class);
+                intent.putExtra("From_activity","04");
+                intent.putExtra("points", points);
+                intent.putExtra("uName", userName);
+                int result = db.insertRound4Score(points, userName);
+                if(result > 0){
+                    Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "Not Updated", Toast.LENGTH_SHORT).show();
+                }
+                startActivity(intent);
                 ctdown.cancel();
+                mp.stop();
                 editText.setText("");
             } else {
                 Toast.makeText(level04_int04.this, "Wrong", Toast.LENGTH_SHORT).show();
                 editText.setText("");
+                Vibratee();
             }
 
             keys = shuffleArray(keys);
@@ -175,4 +198,13 @@ public class level04_int04 extends AppCompatActivity {
             }
 
         }
+    private void Vibratee() {
+        if (Build.VERSION.SDK_INT >= 26) {
+            ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(VibrationEffect.createOneShot(150,10));
+        } else {
+            ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
+        }
+    }
 }
+
+
