@@ -28,7 +28,6 @@ public class level2_int2 extends AppCompatActivity {
     ImageView iv11,iv12,iv13,iv14,iv21,iv22,iv23,iv24,iv31,iv32,iv33,iv34;
     private ImageButton sound;
     private ImageView home2;
-    //private TextView username;
 
     Integer[] cardArray = {101,105,103,102,108,106,101,102,103,106,105,108};
 
@@ -36,14 +35,12 @@ public class level2_int2 extends AppCompatActivity {
     int firstCard, secondCard;
     int clickedFirst, clickedSecond;
     int cardNumber = 1;
-    int turn = 1;
     int playerPoints = 4 ;
     public static MediaPlayer player;
     boolean isPressed=false;
     CountDownTimer ctdown;
     String userName;
 
-    //DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,12 +72,7 @@ public class level2_int2 extends AppCompatActivity {
             }
         }.start();
 
-
-        //dbHelper = new DBHelper(this);
-
         home2 = findViewById(R.id.Iv1);
-
-       // username = findViewById(R.id.username);
 
         sound = (ImageButton) findViewById(R.id.sound);
 

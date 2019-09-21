@@ -106,12 +106,6 @@ public class MainActivity extends AppCompatActivity  {
             startActivity(i);
         }
 
-
-//        Intent i = new Intent(this, mainMenu.class);
-//        //i.putExtra("Name", uname);
-//        startActivity(i);
-
-
     }
 
     public void setLocale(String lang) {

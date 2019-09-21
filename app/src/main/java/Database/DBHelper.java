@@ -6,16 +6,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import java.security.PublicKey;
-import java.util.ArrayList;
-import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "Music.db";
     public static final String LEVEL_1 = "Level1";
     public static final String LEVEL_2 = "Level2";
-    public static final String LEVEL_3 = "Level2";
+    public static final String LEVEL_3 = "Level3";
     public static final String DEFAULT_SCORE = "0";
     public static final int LEVEL_3_DEFAULT_SCORE = 0;
 
@@ -166,20 +163,4 @@ public class DBHelper extends SQLiteOpenHelper {
         return username;
     }
 
-
-//        // Updating Employee
-//        public int insertRound2Score(String name , String score) {
-//
-//            SQLiteDatabase database = getReadableDatabase();
-//
-//            ContentValues values = new ContentValues();
-//            values.put(UsersMaster.UsersInfo.COLUMN_NAME_USERNAME, name);
-//            values.put(UsersMaster.UsersInfo.COLUMN_NAME_LEVEL2_SCORE, score);
-//            values.put(UsersMaster.UsersInfo.COLUMN_NAME_CURRENT_LEVEL, "LEVEL_2");
-//
-//            // updating row
-//            return database.update(UsersMaster.UsersInfo.TABLE_NAME, values,
-//                    UsersMaster.UsersInfo.COLUMN_NAME_USERNAME + "=?",new String[] { String.valueOf(name)});
-//
-//    }
 }

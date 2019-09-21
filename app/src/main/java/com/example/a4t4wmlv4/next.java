@@ -30,16 +30,15 @@ public class next extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_next);
 
-        Intent a = getIntent();
-        userName = a.getStringExtra("Name");
+
 
         next = (Button) findViewById(R.id.next);
         back = (Button) findViewById(R.id.back);
         score = (TextView) findViewById(R.id.score);
 
-        Intent intent = getIntent();
-
-        String Points = intent.getStringExtra("Player Points");
+        Intent a = getIntent();
+        userName = a.getStringExtra("Name");
+        String Points = a.getStringExtra("Player Points");
 
         score.setText(Points);
 
@@ -69,6 +68,27 @@ public class next extends AppCompatActivity {
         if(v == next ){
 
             if(points == 4){
+
+                int result = dbHelper.insertRound2Score(Integer.toString(points), userName);
+
+                Intent intent = new Intent(next.this, level2_int2.class);
+                intent.putExtra("Player Points",points);
+                intent.putExtra("Name", userName);
+                startActivity(intent);
+
+            }
+            else if(points == 10){
+
+                int result = dbHelper.insertRound2Score(Integer.toString(points), userName);
+
+                Intent intent = new Intent(next.this, level2_int3.class);
+                intent.putExtra("Player Points",points);
+                intent.putExtra("Name", userName);
+                startActivity(intent);
+
+            }
+            else if(points == 18) {
+
                 int result = dbHelper.insertRound2Score(Integer.toString(points), userName);
                 if(result > 0){
                     Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_SHORT).show();
@@ -76,33 +96,6 @@ public class next extends AppCompatActivity {
                 else {
                     Toast.makeText(getApplicationContext(), "Not Updated", Toast.LENGTH_SHORT).show();
                 }
-
-                Intent intent = new Intent(next.this, level2_int2.class);
-                startActivity(intent);
-
-            }
-            else if(points == 10){
-
-//                int result = dbHelper.insertRound2Score(Integer.toString(points), userName);
-//                if(result > 0){
-//                    Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_SHORT).show();
-//                }
-//                else {
-//                    Toast.makeText(getApplicationContext(), "Not Updated", Toast.LENGTH_SHORT).show();
-//                }
-
-                Intent intent = new Intent(this, level2_int3.class);
-                startActivity(intent);
-            }
-            else if(points == 18) {
-
-//                int result = dbHelper.insertRound2Score(Integer.toString(points), userName);
-//                if(result > 0){
-//                    Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_SHORT).show();
-//                }
-//                else {
-//                    Toast.makeText(getApplicationContext(), "Not Updated", Toast.LENGTH_SHORT).show();
-//                }
 
                 Intent intent = new Intent(this, level03_main.class);
                 startActivity(intent);
