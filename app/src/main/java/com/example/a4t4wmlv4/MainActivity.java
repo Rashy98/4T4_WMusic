@@ -8,20 +8,15 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.speech.RecognizerIntent;
-import android.speech.tts.TextToSpeech;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.Locale;
 
-import Database.DBAdapter;
 import Database.DBHelper;
 
 
@@ -29,6 +24,7 @@ public class MainActivity extends AppCompatActivity  {
     Button log;
     ImageButton eng, frn;
     EditText name;
+    String SCORE = "0";
 
 
     @Override
@@ -86,14 +82,26 @@ public class MainActivity extends AppCompatActivity  {
         String uname = ((EditText) findViewById(R.id.nameedit)).getText().toString();
         System.out.println(uname);
 
-        DBAdapter db = new DBAdapter(this);
+        DBHelper db = new DBHelper(this);
 
-        long x = db.insertData(uname, 0, 0);
+        if (db.getUser(uname) != null && db.getUser(uname).equalsIgnoreCase(uname)){
+            Toast.makeText(getApplicationContext(), "WELCOME BACK", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(this, mainMenu.class);
+            i.putExtra("Name", uname);
+            startActivity(i);
+        }
+        else{
+            long x = db.insertData(uname,SCORE);
 
-        if (x <= 0)
-            System.out.println("unsucessful");
-        else
-           System.out.println("Successful");
+            if (x <= 0) {
+                System.out.println("unsucessful");
+                Toast.makeText(getApplicationContext(), "NOT INSERTED", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                System.out.println("Successful");
+                Toast.makeText(getApplicationContext(), "INSERTED", Toast.LENGTH_SHORT).show();
+            }
+        }
 
 
         Intent i = new Intent(this, mainMenu.class);

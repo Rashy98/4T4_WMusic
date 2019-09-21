@@ -2,7 +2,6 @@ package com.example.a4t4wmlv4;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,11 +17,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.media.MediaPlayer;
 
 import Database.DBHelper;
-
-import static com.example.a4t4wmlv4.level2.player;
 
 
 public class level1 extends AppCompatActivity {

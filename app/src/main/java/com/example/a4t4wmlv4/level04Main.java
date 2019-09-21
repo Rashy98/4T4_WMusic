@@ -3,30 +3,17 @@ package com.example.a4t4wmlv4;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.Cursor;
-import android.graphics.Color;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
-import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import Database.DBAdapter;
 import Database.DBHelper;
-
-import static com.example.a4t4wmlv4.R.layout.activity_level04_main;
 
 public class level04Main extends AppCompatActivity {
 
     private Button but01 , but02 , but03 , but04 , home;
-    DBAdapter db = new DBAdapter(this);
+    DBHelper db = new DBHelper(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -11,13 +11,17 @@ import android.media.MediaPlayer;
 import android.view.View;
 import android.widget.Button;
 
+
 public class mainMenu extends AppCompatActivity {
     private Button button04 , button03 , button02 , button01;
+    String userName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
+
+        userName = getIntent().getStringExtra("Name");
         //final MediaPlayer mplayer = MediaPlayer.create(this,R.raw.background);
 
         //mplayer.start();
@@ -89,6 +93,7 @@ public class mainMenu extends AppCompatActivity {
         else if(v == button02)
         {
             Intent intent = new Intent(this, level2.class);
+            intent.putExtra("Name", userName);
             startActivity(intent);
         }
 

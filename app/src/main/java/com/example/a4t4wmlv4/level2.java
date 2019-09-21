@@ -17,12 +17,14 @@ public class level2 extends AppCompatActivity {
     private ImageButton sound;
     public static MediaPlayer player;
     boolean isPressed=false;
+    String userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2);
 
+        userName = getIntent().getStringExtra("Name");
         player = new MediaPlayer();
         player = MediaPlayer.create(this, R.raw.background);
         //player.setLooping(true);
@@ -74,6 +76,7 @@ public class level2 extends AppCompatActivity {
     public void NextPage (View v){
         if(v == button1) {
             Intent intent = new Intent(this, level2_int1.class);
+            intent.putExtra("Name", userName);
             startActivity(intent);
         }
     }
