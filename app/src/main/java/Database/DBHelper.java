@@ -6,6 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -199,6 +202,60 @@ public class DBHelper extends SQLiteOpenHelper {
 
         cursor.close();
         return username;
+    }
+
+    public Cursor readLevel04data() {
+
+        SQLiteDatabase database = getReadableDatabase();
+
+        String[] projection = {
+
+                UsersMaster.UsersInfo._ID,
+                UsersMaster.UsersInfo.COLUMN_NAME_USERNAME,
+                UsersMaster.UsersInfo.COLUMN_NAME_CURRENT_LEVEL,
+                UsersMaster.UsersInfo.COLUMN_NAME_LEVEL4_SCORE,
+        };
+
+        String selection = UsersMaster.UsersInfo.COLUMN_NAME_LEVEL4_SCORE + ">" +0;
+
+
+        Cursor cursor = database.query(
+                UsersMaster.UsersInfo.TABLE_NAME,
+                projection,
+                selection,
+                null,
+                null,
+                null,
+                null
+
+        );
+
+        String username = cursor.getString(cursor.getColumnIndexOrThrow(UsersMaster.UsersInfo.COLUMN_NAME_USERNAME));
+
+        cursor.close();
+        return cursor;
+    }
+
+    public List<String> getAllnamesOflevel04() {
+        List<String> nameList = new ArrayList<>();
+        // Select All Query
+
+        String selectQuery = "SELECT * FROM " + UsersMaster.UsersInfo.TABLE_NAME+" WHERE " + UsersMaster.UsersInfo.COLUMN_NAME_LEVEL4_SCORE+ " >0 ";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                String name;
+                name = cursor.getString(1);
+                nameList.add(name);
+
+            } while (cursor.moveToNext());
+        }
+
+        return nameList;
     }
 
 }

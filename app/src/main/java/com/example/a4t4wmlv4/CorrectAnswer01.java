@@ -88,7 +88,7 @@ public class CorrectAnswer01 extends AppCompatActivity {
         else if(previous.equals("04"))
         {
 
-            Intent i = new Intent(this,Last.class);
+            Intent i = new Intent(this,Showdetails.class);
             i.putExtra("uName",userName);
             startActivity(i);
         }

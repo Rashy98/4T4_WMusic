@@ -34,7 +34,7 @@ public class level04Main extends AppCompatActivity {
         Intent a = getIntent();
         name = a.getStringExtra("Uname");
         userN = (TextView) findViewById(R.id.welcome);
-        userN.setText("Good Luck "+name+ "..");
+        userN.setText("All the best "+name+ "!!");
 
 
         but01 =(Button) findViewById(R.id.int0104);
