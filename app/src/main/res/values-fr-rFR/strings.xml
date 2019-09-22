@@ -39,4 +39,5 @@
     <string name="bck">Retourner</string>
     <string name="youdid">TU L\'AS FAIT!!</string>
     <string name="lasttitle">Liste des joueurs ayant complété le niveau 04</string>
+    <string name="level3LAst">Liste des joueurs ayant complété le niveau 03</string>
 </resources>

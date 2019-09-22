@@ -96,13 +96,20 @@
 
             <Button
                 android:id="@+id/int0303"
-                android:layout_width="290dp"
+                android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="50dp"
                 android:background="@drawable/bgpink"
                 android:text="@string/three"
                 android:textSize="36sp" />
-
+|        <Button
+            android:id="@+id/int0403"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="90dp"
+            android:background="@drawable/bgpink"
+            android:text="@string/four"
+            android:textSize="36sp" />
 
         </LinearLayout>
 

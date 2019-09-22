@@ -12,7 +12,7 @@ import Database.DBHelper;
 
 public class level03_main extends AppCompatActivity {
 
-    private Button btn1, btn2, btn3, home;
+    private Button btn1, btn2, btn3, btn4, home;
     String userName;
     DBHelper db = new DBHelper(this);
 
@@ -32,7 +32,7 @@ public class level03_main extends AppCompatActivity {
         btn1 = findViewById(R.id.int0103);
         btn2 = findViewById(R.id.int0203);
         btn3 = findViewById(R.id.int0303);
-
+        btn4 = findViewById(R.id.int0403);
         home = findViewById(R.id.homefromlevel03main);
 
         home.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +63,12 @@ public class level03_main extends AppCompatActivity {
                 switchPage(view);
             }
         });
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switchPage(view);
+            }
+        });
 
     }
     public void switchPage(View v){
@@ -78,6 +84,11 @@ public class level03_main extends AppCompatActivity {
         }
         else if(v == btn3){
             Intent i = new Intent(this, level03_int03.class);
+            i.putExtra("uName", userName);
+            startActivity(i);
+        }
+        else if(v == btn4){
+            Intent i = new Intent(this, level3showdetails.class);
             i.putExtra("uName", userName);
             startActivity(i);
         }
