@@ -17,17 +17,25 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import Database.DBHelper;
+
 public class level01Int3 extends AppCompatActivity {
 
     Button homebutton,back,next;
     TextView showValue;
     CountDownTimer ctdown;
     int counter = 0;
+    String username;
+    private String points;
+    DBHelper dbHelper = new DBHelper(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level01_int3);
+
+        username  =  getIntent().getStringExtra("uName");
+        points = getIntent().getStringExtra("points");
 
 
         //adding timer
@@ -45,6 +53,8 @@ public class level01Int3 extends AppCompatActivity {
 
                 Intent intent = new Intent(level01Int3.this, level01timesup.class);
                 intent.putExtra("Value","3");
+                intent.putExtra("uName",username);
+                intent.putExtra("points", points);
                 startActivity(intent);
 
             }
@@ -59,6 +69,7 @@ public class level01Int3 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(level01Int3.this, MainActivity.class);
+                intent.putExtra("uName",username);
                 startActivity(intent);
             }
         });
@@ -70,9 +81,22 @@ public class level01Int3 extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                points = "30";
 
                 Intent intent = new Intent(level01Int3.this, level01_complete.class);
                 intent.putExtra("Next","3");
+                intent.putExtra("uName",username);
+                intent.putExtra("points",points);
+
+                int res = dbHelper.insertRound1Score(Integer.parseInt(points),username);
+
+                if(res > 0){
+                    Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "Not Updated", Toast.LENGTH_SHORT).show();
+                }
+
                 startActivity(intent);
 
             }

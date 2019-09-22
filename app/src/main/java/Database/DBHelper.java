@@ -27,7 +27,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 + " (" + UsersMaster.UsersInfo._ID + " INTEGER PRIMARY KEY,"
                 + UsersMaster.UsersInfo.COLUMN_NAME_USERNAME + " TEXT,"
                 + UsersMaster.UsersInfo.COLUMN_NAME_CURRENT_LEVEL + " TEXT,"
-                + UsersMaster.UsersInfo.COLUMN_NAME_LEVEL1_SCORE + " TEXT,"
+                + UsersMaster.UsersInfo.COLUMN_NAME_LEVEL1_SCORE + " INTEGER,"
                 + UsersMaster.UsersInfo.COLUMN_NAME_LEVEL2_SCORE + " TEXT,"
                 + UsersMaster.UsersInfo.COLUMN_NAME_LEVEL3_SCORE + " INTEGER,"
                 + UsersMaster.UsersInfo.COLUMN_NAME_LEVEL4_SCORE + " TEXT)";
@@ -46,7 +46,7 @@ public class DBHelper extends SQLiteOpenHelper {
         ContentValues values =  new ContentValues();
         values.put(UsersMaster.UsersInfo.COLUMN_NAME_USERNAME, userName);
         values.put(UsersMaster.UsersInfo.COLUMN_NAME_CURRENT_LEVEL, LEVEL_1);
-        values.put(UsersMaster.UsersInfo.COLUMN_NAME_LEVEL1_SCORE, score);
+        values.put(UsersMaster.UsersInfo.COLUMN_NAME_LEVEL1_SCORE, DEFAULT_SCORE);
         values.put(UsersMaster.UsersInfo.COLUMN_NAME_LEVEL2_SCORE, DEFAULT_SCORE);
         values.put(UsersMaster.UsersInfo.COLUMN_NAME_LEVEL3_SCORE, DEFAULT_SCORE);
         values.put(UsersMaster.UsersInfo.COLUMN_NAME_LEVEL4_SCORE, DEFAULT_SCORE);
@@ -90,6 +90,27 @@ public class DBHelper extends SQLiteOpenHelper {
         }
 
     }
+
+    public int insertRound1Score(int score, String userName){
+        SQLiteDatabase database = getReadableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(UsersMaster.UsersInfo.COLUMN_NAME_LEVEL1_SCORE, score);
+        values.put(UsersMaster.UsersInfo.COLUMN_NAME_CURRENT_LEVEL, LEVEL_1);
+
+        String selection = UsersMaster.UsersInfo.COLUMN_NAME_USERNAME + "=?";
+        String selectionArgs[] = {userName};
+
+        int count = database.update(
+                UsersMaster.UsersInfo.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs
+        );
+
+        return count;
+    }
+
 
     public int insertRound2Score(String score, String userName){
         SQLiteDatabase database = getReadableDatabase();

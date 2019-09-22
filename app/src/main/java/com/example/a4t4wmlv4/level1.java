@@ -26,42 +26,46 @@ public class level1 extends AppCompatActivity {
     Button homebutton,back,next,sound;
     ImageView iv1;
     TextView showValue;
-    int counter = 0;
     CountDownTimer ctdown;
-    DBHelper dbHelper;
+    DBHelper dbHelper = new DBHelper(this);
+    String username;
     boolean isPressed = false;
+
+    private String points = "0";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level1);
 
+        username  =  getIntent().getStringExtra("Name");
 
 
-        final MediaPlayer mplayer = MediaPlayer.create(this,R.raw.background);
 
-        mplayer.start();
-      //sound on off
-        sound = (Button) findViewById(R.id.soundon);
-
-        sound.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                sound.setBackgroundResource(R.drawable.soundoff);
-
-                if(isPressed){
-                    sound.setBackgroundResource(R.drawable.soundoff);
-                    mplayer.pause();
-                }
-                else{
-                    sound.setBackgroundResource(R.drawable.soundon);
-                    mplayer.start();
-                }
-
-                isPressed= !isPressed;
-            }
-        });
+//        final MediaPlayer mplayer = MediaPlayer.create(this,R.raw.background);
+//
+//        mplayer.start();
+//      //sound on off
+//        sound = (Button) findViewById(R.id.soundon);
+//
+//        sound.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                sound.setBackgroundResource(R.drawable.soundoff);
+//
+//                if(isPressed){
+//                    sound.setBackgroundResource(R.drawable.soundoff);
+//                    mplayer.pause();
+//                }
+//                else{
+//                    sound.setBackgroundResource(R.drawable.soundon);
+//                    mplayer.start();
+//                }
+//
+//                isPressed= !isPressed;
+//            }
+//        });
 
 
 
@@ -82,6 +86,8 @@ public class level1 extends AppCompatActivity {
 
                 Intent intent = new Intent(level1.this, level01timesup.class);
                 intent.putExtra("Value","1");
+                intent.putExtra("uName",username);
+                intent.putExtra("points", points);
                 startActivity(intent);
 
             }
@@ -111,10 +117,23 @@ public class level1 extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                points = "10";
                 Intent intent = new Intent(level1.this, level01score.class);
                 intent.putExtra("Next","1");
+                intent.putExtra("points", points);
+                intent.putExtra("uName", username);
+                int res = dbHelper.insertRound1Score(Integer.parseInt(points),username);
+
+                if(res > 0){
+                    Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "Not Updated", Toast.LENGTH_SHORT).show();
+                }
+
                 startActivity(intent);
+
+                ctdown.cancel();
 
             }
         });
@@ -129,35 +148,31 @@ public class level1 extends AppCompatActivity {
     }
 
     //correct image toast
-    public  void correct(View view){
-
-       // ctdown.cancel();
-
-        LayoutInflater inflater = getLayoutInflater();
-
-        View layout = inflater.inflate(R.layout.correct_toast,(ViewGroup) findViewById(R.id.custom_toast_container));
-
-//        TextView textView = (TextView) layout.findViewById(R.id.text);
-//        textView.setText();
-
-        Toast toast = new Toast(getApplicationContext());
-        toast.setGravity(Gravity.CENTER_VERTICAL,0,0);
-        toast.setDuration(Toast.LENGTH_SHORT);
-        toast.setView(layout);
-        toast.show();
-
-        ctdown.cancel();
-
-
-        if (counter == 0) {
-            counter += 10;
-        }
-        showValue.setText(Integer.toString(counter));
-
-//        String score =  ((TextView) findViewById(R.id.score)).toString();
-//        DBHelper db = new DBHelper(this);
-//        db.addInfo(score);
-    }
+//    public  void correct(View view){
+//
+//       // ctdown.cancel();
+//
+//        LayoutInflater inflater = getLayoutInflater();
+//
+//        View layout = inflater.inflate(R.layout.correct_toast,(ViewGroup) findViewById(R.id.custom_toast_container));
+//
+////        TextView textView = (TextView) layout.findViewById(R.id.text);
+////        textView.setText();
+//
+//        Toast toast = new Toast(getApplicationContext());
+//        toast.setGravity(Gravity.CENTER_VERTICAL,0,0);
+//        toast.setDuration(Toast.LENGTH_SHORT);
+//        toast.setView(layout);
+//        toast.show();
+//
+//        ctdown.cancel();
+//
+//
+//
+////        String score =  ((TextView) findViewById(R.id.score)).toString();
+////        DBHelper db = new DBHelper(this);
+////        db.addInfo(score);
+//    }
 
 
     //wrong image toast
@@ -187,13 +202,7 @@ public class level1 extends AppCompatActivity {
             ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
         }
     }
-    private void Vibratee() {
-        if (Build.VERSION.SDK_INT >= 26) {
-            ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(VibrationEffect.createOneShot(150,10));
-        } else {
-            ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
-        }
-    }
+
 
 
 

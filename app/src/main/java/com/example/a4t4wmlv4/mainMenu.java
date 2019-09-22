@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.media.MediaPlayer;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 public class mainMenu extends AppCompatActivity {
@@ -18,6 +19,11 @@ public class mainMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+        Intent a = getIntent();
+        String previous = a.getStringExtra("Name");
+
+
+        Toast.makeText(this,previous,Toast.LENGTH_SHORT).show();
 
         //final MediaPlayer mplayer = MediaPlayer.create(this,R.raw.background);
 
@@ -46,8 +52,7 @@ public class mainMenu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(mainMenu.this, level1.class);
-                startActivity(intent);
+                switchPage(view);
                 //    mplayer.pause();
             }
         });
@@ -83,7 +88,10 @@ public class mainMenu extends AppCompatActivity {
 
     public void switchPage (View v){
         if(v == button01) {
+            Intent a = getIntent();
+            String previous = a.getStringExtra("Name");
             Intent intent = new Intent(this, level1.class);
+            intent.putExtra("Name" , previous);
             startActivity(intent);
 
         }

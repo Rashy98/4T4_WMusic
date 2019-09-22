@@ -18,17 +18,26 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import Database.DBHelper;
+
 public class level01Int2 extends AppCompatActivity {
 
     Button homebutton,back,next;
     int counter = 0;
     TextView showValue;
     CountDownTimer ctdown;
+    String username;
+    private String points;
+
+    DBHelper dbHelper = new DBHelper(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level01_int2);
+
+        username  =  getIntent().getStringExtra("uName");
+        points = getIntent().getStringExtra("points");
 
         //adding timer
         final TextView time = (TextView) findViewById(R.id.time);
@@ -45,6 +54,9 @@ public class level01Int2 extends AppCompatActivity {
 
                 Intent intent = new Intent(level01Int2.this, level01timesup.class);
                 intent.putExtra("Value","2");
+                intent.putExtra("uName",username);
+                intent.putExtra("points", points);
+
                 startActivity(intent);
 
             }
@@ -61,6 +73,7 @@ public class level01Int2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(level01Int2.this, MainActivity.class);
+                intent.putExtra("uName",username);
                 startActivity(intent);
             }
         });
@@ -72,9 +85,22 @@ public class level01Int2 extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                points = "20";
 
                 Intent intent = new Intent(level01Int2.this, level01score.class);
+                intent.putExtra("uName",username);
+                intent.putExtra("points", points);
                 intent.putExtra("Next","2");
+
+                int res = dbHelper.insertRound1Score(Integer.parseInt(points),username);
+
+                if(res > 0){
+                    Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "Not Updated", Toast.LENGTH_SHORT).show();
+                }
+
                 startActivity(intent);
 
             }
@@ -139,12 +165,12 @@ public class level01Int2 extends AppCompatActivity {
             ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
         }
     }
-    private void Vibratee() {
+   /* private void Vibratee() {
         if (Build.VERSION.SDK_INT >= 26) {
             ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(VibrationEffect.createOneShot(150,10));
         } else {
             ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
         }
-    }
+    }*/
 
 }
