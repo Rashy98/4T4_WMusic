@@ -14,6 +14,8 @@ public class level04Main extends AppCompatActivity {
 
     private Button but01 , but02 , but03 , but04 , home;
     DBHelper db = new DBHelper(this);
+    String name;
+    TextView userN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +32,9 @@ public class level04Main extends AppCompatActivity {
         //welcomet.setText();
 
         Intent a = getIntent();
-        String name = a.getStringExtra("Name");
-        System.out.println(name);
-        welcome.setText("Welcome"+name);
-       // setContentView(welcome);
+        name = a.getStringExtra("Uname");
+        userN = (TextView) findViewById(R.id.welcome);
+        userN.setText("Good Luck "+name+ "..");
 
 
         but01 =(Button) findViewById(R.id.int0104);
@@ -92,6 +93,7 @@ public class level04Main extends AppCompatActivity {
     public void switchPage (View v){
         if(v == but01) {
             Intent intent = new Intent(this, level04_01.class);
+            intent.putExtra("Name" , name);
             startActivity(intent);
 
 
