@@ -36,6 +36,7 @@ public class level2 extends AppCompatActivity {
         //player.setLooping(true);
         player.start();
 
+        //go to back
         Button btn = (Button) findViewById(R.id.btn5);
         btn.setOnClickListener(new View.OnClickListener()
         {
@@ -83,7 +84,7 @@ public class level2 extends AppCompatActivity {
 
 
     }
-
+        //go to next page
     public void NextPage (View v){
         if(v == button1) {
             Intent intent = new Intent(this, level2_int1.class);

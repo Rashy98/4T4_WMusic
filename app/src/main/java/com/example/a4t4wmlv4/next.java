@@ -100,7 +100,7 @@ public class next extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Not Updated", Toast.LENGTH_SHORT).show();
                 }
 
-                Intent intent = new Intent(this, level03_main.class);
+                Intent intent = new Intent(this, Showlevel2details.class);
 
                 intent.putExtra("UName", userName);
                 startActivity(intent);

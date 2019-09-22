@@ -104,8 +104,10 @@ public class level2_int2 extends AppCompatActivity {
         iv33.setTag("10");
         iv34.setTag("11");
 
+        //load the card images
         frontOfCardResources();
 
+        //to shuffle cards
         Collections.shuffle(Arrays.asList(cardArray));
 
         iv11.setOnClickListener(new View.OnClickListener() {
@@ -239,6 +241,7 @@ public class level2_int2 extends AppCompatActivity {
 
     private void doStuff(ImageView iv, int Card) {
 
+        //set the correct images to the image view
         if (cardArray[Card] == 101) {
             iv.setImageResource(sym_101);
         }
@@ -290,6 +293,7 @@ public class level2_int2 extends AppCompatActivity {
                 @Override
                 public void run() {
 
+                    //check if the selected images are equal
                     calculate();
 
                 }
@@ -298,6 +302,7 @@ public class level2_int2 extends AppCompatActivity {
     }
 
     private void calculate() {
+        //if images are equal remove them and add point
         if(firstCard == secondCard){
             if(clickedFirst == 0){
                 iv11.setVisibility(View.INVISIBLE);
@@ -406,6 +411,7 @@ public class level2_int2 extends AppCompatActivity {
         iv33.setEnabled(true);
         iv34.setEnabled(true);
 
+        //check if the game is over
         checkEnd();
     }
 
@@ -426,6 +432,7 @@ public class level2_int2 extends AppCompatActivity {
                 iv34.getVisibility() == View.INVISIBLE ){
 
 
+            //get the intent and sent the values to another activity
             player.stop();
             ctdown.cancel();
             Intent a = getIntent();
@@ -451,6 +458,7 @@ public class level2_int2 extends AppCompatActivity {
 
 
     }
+    //vibreate to the wrong matches
     private void Vibratee() {
         if (Build.VERSION.SDK_INT >= 26) {
             ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(VibrationEffect.createOneShot(150,10));
