@@ -19,6 +19,7 @@ public class level2showdetails extends AppCompatActivity {
     ListView names;
     DBHelper db = new DBHelper(this);
     Button next ;
+    String userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +43,7 @@ public class level2showdetails extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(level2showdetails.this,level03_main.class);
+                Intent i = new Intent(level2showdetails.this,Last.class);
                 startActivity(i);
             }
         });

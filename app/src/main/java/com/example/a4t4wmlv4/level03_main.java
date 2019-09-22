@@ -26,7 +26,7 @@ public class level03_main extends AppCompatActivity {
         TextView welcome = findViewById(R.id.welcome);
 
         Intent i1 = getIntent();
-        String name = i1.getStringExtra("Uname");
+        String name = i1.getStringExtra("UName");
         welcome.setText(name);
 
         btn1 = findViewById(R.id.int0103);

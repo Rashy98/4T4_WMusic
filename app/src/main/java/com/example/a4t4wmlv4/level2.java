@@ -17,7 +17,7 @@ import Database.UsersMaster;
 
 public class level2 extends AppCompatActivity {
 
-    private Button button1;
+    private Button button1,button2;
     private ImageButton sound;
     private TextView userN;
     public static MediaPlayer player;
@@ -50,6 +50,7 @@ public class level2 extends AppCompatActivity {
         });
 
         button1 = (Button) findViewById(R.id.btn2);
+        button2 = (Button) findViewById(R.id.btn4);
         sound = (ImageButton) findViewById(R.id.sound);
 
         Intent a = getIntent();
@@ -58,6 +59,14 @@ public class level2 extends AppCompatActivity {
         userN.setText("Good Luck "+name+ "..");
 
         button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                NextPage(view);
+                player.pause();
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -88,6 +97,11 @@ public class level2 extends AppCompatActivity {
     public void NextPage (View v){
         if(v == button1) {
             Intent intent = new Intent(this, level2_int1.class);
+            intent.putExtra("Name" , name);
+            startActivity(intent);
+        }
+        else if(v == button2) {
+            Intent intent = new Intent(this, level2showdetails.class);
             intent.putExtra("Name" , name);
             startActivity(intent);
         }

@@ -113,4 +113,22 @@
             android:textSize="24sp" />
     </RelativeLayout>
 
+    <Button
+        android:id="@+id/btn4"
+        android:layout_width="138dp"
+        android:layout_height="61dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="46dp"
+        android:layout_marginLeft="46dp"
+        android:layout_marginEnd="227dp"
+        android:layout_marginRight="227dp"
+        android:layout_marginBottom="153dp"
+        android:background="@color/Start2"
+        android:text="@string/showde"
+        android:textColor="@android:color/background_light" />
+
 </RelativeLayout>
