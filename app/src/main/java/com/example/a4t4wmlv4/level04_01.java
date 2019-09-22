@@ -17,6 +17,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -39,6 +40,7 @@ public class level04_01 extends AppCompatActivity {
     MediaPlayer mp;
     String userName;
     DBHelper db = new DBHelper(this);
+    Button home;
 
 
     @Override
@@ -60,7 +62,7 @@ public class level04_01 extends AppCompatActivity {
             @Override
             public void onFinish() {
                 Intent a = new Intent(level04_01.this,timesup.class);
-                a.putExtra("From_activity","01");
+                a.putExtra("From_activity_time","1");
                 startActivity(a);
 
             }
@@ -71,6 +73,15 @@ public class level04_01 extends AppCompatActivity {
         mp = MediaPlayer.create(this, R.raw.background);
         //player.setLooping(true);
         mp.start();
+
+        home = findViewById(R.id.home1);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent x = new Intent(level04_01.this,level04Main.class);
+                startActivity(x);
+            }
+        });
 
 
 

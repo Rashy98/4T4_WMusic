@@ -259,8 +259,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public List<String> getAllnamesOflevel04() {
         List<String> nameList = new ArrayList<>();
-        // Select All Query
-
         String selectQuery = "SELECT * FROM " + UsersMaster.UsersInfo.TABLE_NAME+" WHERE " + UsersMaster.UsersInfo.COLUMN_NAME_LEVEL4_SCORE+ " >0 ";
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -275,7 +273,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
             } while (cursor.moveToNext());
         }
-
         return nameList;
     }
 

@@ -49,16 +49,6 @@ public class level04_int03 extends AppCompatActivity {
         userName = getIntent().getStringExtra("uName");
 
 
-        home = (Button) findViewById(R.id.homel403);
-
-        home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                finish();
-
-            }
-        });
 
         //Remaining time handler
         final TextView time = (TextView) findViewById(R.id.time);
@@ -74,7 +64,7 @@ public class level04_int03 extends AppCompatActivity {
             @Override
             public void onFinish() {
                 Intent a = new Intent(level04_int03.this,timesup.class);
-                a.putExtra("From_activity","03");
+                a.putExtra("From_activity","3");
                 startActivity(a);
 
             }
@@ -84,6 +74,16 @@ public class level04_int03 extends AppCompatActivity {
         mp = new MediaPlayer();
         mp = MediaPlayer.create(this, R.raw.background);
         mp.start();
+
+        home = findViewById(R.id.home3);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent x = new Intent(level04_int03.this,level04Main.class);
+                startActivity(x);
+            }
+        });
+
 
 
         //animation of buttons

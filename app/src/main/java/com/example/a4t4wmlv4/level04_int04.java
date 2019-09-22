@@ -63,7 +63,7 @@ public class level04_int04 extends AppCompatActivity {
                 @Override
                 public void onFinish() {
                     Intent a = new Intent(level04_int04.this,timesup.class);
-                    a.putExtra("From_activity","04");
+                    a.putExtra("From_activity","4");
                     startActivity(a);
 
                 }
@@ -74,8 +74,17 @@ public class level04_int04 extends AppCompatActivity {
         //player.setLooping(true);
         mp.start();
 
+        Button home = findViewById(R.id.home4);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent x = new Intent(level04_int04.this,level04Main.class);
+                startActivity(x);
+            }
+        });
 
-            smallbigforth = AnimationUtils.loadAnimation(this, R.anim.smallbigforth);
+
+        smallbigforth = AnimationUtils.loadAnimation(this, R.anim.smallbigforth);
 
             keys = shuffleArray(keys);
 

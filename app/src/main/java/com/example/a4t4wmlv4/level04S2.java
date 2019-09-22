@@ -59,7 +59,7 @@ public class level04S2 extends AppCompatActivity {
             @Override
             public void onFinish() {
                 Intent a = new Intent(level04S2.this,timesup.class);
-                a.putExtra("From_activity","02");
+                a.putExtra("From_activity","2");
                 startActivity(a);
 
             }
@@ -68,6 +68,15 @@ public class level04S2 extends AppCompatActivity {
         mp = new MediaPlayer();
         mp = MediaPlayer.create(this, R.raw.background);
         mp.start();
+
+        Button home = findViewById(R.id.home2);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent x = new Intent(level04S2.this,level04Main.class);
+                startActivity(x);
+            }
+        });
 
         smallbigforth = AnimationUtils.loadAnimation(this, R.anim.smallbigforth);
 

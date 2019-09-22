@@ -10,47 +10,52 @@ import android.widget.Button;
 public class timesup extends AppCompatActivity {
 
     Button btn;
-
+    String points,username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timesup);
+        points = getIntent().getStringExtra("points");
+        username = getIntent().getStringExtra("uName");
 
-        btn = (Button) findViewById(R.id.goback);
-
+        btn = findViewById(R.id.gobackti);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                goBack(view);
+                goBacktime(view);
             }
         });
 
-
     }
 
-    public void goBack(View v)
+    public void goBacktime(View v)
     {
         Intent a = getIntent();
-        String previous = a.getStringExtra("From_activity");
-        if(previous == "01") {
-            Intent intent = new Intent(this, level04_01.class);
-            startActivity(intent);
+        String previous = a.getStringExtra("From_activity_time");
+        int i = Integer.parseInt(previous);
+        if(i == 1) {
+            Intent intent1 = new Intent(timesup.this, level04_01.class);
+            intent1.putExtra("uName",username);
+            startActivity(intent1);
+            //finish();
         }
-        else if(previous == "02")
+        else if(i == 2)
         {
-            Intent intent = new Intent(this, level04S2.class);
-            startActivity(intent);
+            Intent intent2 = new Intent(timesup.this, level04S2.class);
+            intent2.putExtra("uName",username);
+            startActivity(intent2);
         }
-        else if(previous == "03")
+        else if(i == 3)
         {
-            Intent intent = new Intent(this, level04_int03.class);
-            startActivity(intent);
+            Intent intent3 = new Intent(timesup.this, level04_int03.class);
+            intent3.putExtra("uName",username);
+            startActivity(intent3);
         }
-        else if(previous == "04")
+        else if(i == 4)
         {
-            Intent intent = new Intent(this, level04_int04.class);
-            startActivity(intent);
+            Intent intent4 = new Intent(this, level04_int04.class);
+            intent4.putExtra("uName",username);
+            startActivity(intent4);
         }
         else if(previous == "level3_01")
         {
