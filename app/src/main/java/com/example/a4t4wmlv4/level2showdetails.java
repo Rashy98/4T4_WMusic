@@ -15,7 +15,7 @@ import java.util.List;
 
 import Database.DBHelper;
 
-public class Showlevel2details extends AppCompatActivity {
+public class level2showdetails extends AppCompatActivity {
     ListView names;
     DBHelper db = new DBHelper(this);
     Button next ;
@@ -42,7 +42,7 @@ public class Showlevel2details extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Showlevel2details.this,level03_main.class);
+                Intent i = new Intent(level2showdetails.this,level03_main.class);
                 startActivity(i);
             }
         });
