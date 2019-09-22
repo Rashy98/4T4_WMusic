@@ -69,8 +69,9 @@ public class level2_int3 extends AppCompatActivity {
             }
             @Override
             public void onFinish() {
-                Intent a = new Intent(level2_int3.this, timesup.class);
-                a.putExtra("From_activity","lvl2_1");
+                Intent a = new Intent(level2_int3.this, level2timesup.class);
+                a.putExtra("Value","3");
+                a.putExtra("Name",userName);
                 startActivity(a);
                 ctdown.cancel();
             }
@@ -504,14 +505,6 @@ public class level2_int3 extends AppCompatActivity {
         //check if the game is over
         checkEnd();
     }
-//    public void round3marks(View view){
-//
-//        String marks = Integer.toString(playerPoints);
-//        String name =  username.getText().toString();
-//
-//        boolean r1m = dbHelper.insertData(name, "3" , marks);
-//
-//    }
 
     private void checkEnd() {
 

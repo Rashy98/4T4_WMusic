@@ -70,10 +70,10 @@ public class level2_int1 extends AppCompatActivity {
             @Override
             public void onFinish() {
 
-                Intent a = new Intent(level2_int1.this, timesup.class);
-                a.putExtra("From_activity","lvl2_1");
+                Intent a = new Intent(level2_int1.this, level2timesup.class);
+                a.putExtra("Value","1");
+                a.putExtra("Name",userName);
                 startActivity(a);
-                ctdown.cancel();
 
             }
         }.start();
