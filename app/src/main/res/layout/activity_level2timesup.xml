@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/imageView15"
-        android:layout_width="249dp"
-        android:layout_height="256dp"
+        android:layout_width="223dp"
+        android:layout_height="223dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -19,10 +19,9 @@
         android:contentDescription="@string/blank"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.454"
+        app:layout_constraintVertical_bias="0.381"
         app:srcCompat="@drawable/sad"
         tools:srcCompat="@drawable/sad" />
 

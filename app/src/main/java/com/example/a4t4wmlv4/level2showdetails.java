@@ -23,7 +23,7 @@ public class level2showdetails extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_showdetails);
+        setContentView(R.layout.activity_level2showdetails);
 
         names = findViewById(R.id.names);
         next = findViewById(R.id.nextpage);
