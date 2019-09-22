@@ -29,7 +29,10 @@ public class level01_complete extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                Intent a = getIntent();
+                String userName = a.getStringExtra("uName");
                 Intent intent = new Intent(level01_complete.this, level2.class);
+                intent.putExtra("Name", userName);
                 startActivity(intent);
             }
         });

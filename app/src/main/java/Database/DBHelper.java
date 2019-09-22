@@ -15,7 +15,6 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String LEVEL_3 = "Level3";
     public static final String LEVEL_4 = "Level4";
     public static final String DEFAULT_SCORE = "0";
-    public static final int LEVEL_3_DEFAULT_SCORE = 0;
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -28,7 +27,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 + " (" + UsersMaster.UsersInfo._ID + " INTEGER PRIMARY KEY,"
                 + UsersMaster.UsersInfo.COLUMN_NAME_USERNAME + " TEXT,"
                 + UsersMaster.UsersInfo.COLUMN_NAME_CURRENT_LEVEL + " TEXT,"
-                + UsersMaster.UsersInfo.COLUMN_NAME_LEVEL1_SCORE + " INTEGER,"
+                + UsersMaster.UsersInfo.COLUMN_NAME_LEVEL1_SCORE + " TEXT,"
                 + UsersMaster.UsersInfo.COLUMN_NAME_LEVEL2_SCORE + " TEXT,"
                 + UsersMaster.UsersInfo.COLUMN_NAME_LEVEL3_SCORE + " INTEGER,"
                 + UsersMaster.UsersInfo.COLUMN_NAME_LEVEL4_SCORE + " TEXT)";
@@ -46,7 +45,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
         ContentValues values =  new ContentValues();
         values.put(UsersMaster.UsersInfo.COLUMN_NAME_USERNAME, userName);
-        values.put(UsersMaster.UsersInfo.COLUMN_NAME_CURRENT_LEVEL, LEVEL_1);
         values.put(UsersMaster.UsersInfo.COLUMN_NAME_LEVEL1_SCORE, DEFAULT_SCORE);
         values.put(UsersMaster.UsersInfo.COLUMN_NAME_LEVEL2_SCORE, DEFAULT_SCORE);
         values.put(UsersMaster.UsersInfo.COLUMN_NAME_LEVEL3_SCORE, DEFAULT_SCORE);
@@ -91,7 +89,6 @@ public class DBHelper extends SQLiteOpenHelper {
         }
 
     }
-
     public int insertRound1Score(int score, String userName){
         SQLiteDatabase database = getReadableDatabase();
 
@@ -111,7 +108,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
         return count;
     }
-
 
     public int insertRound2Score(String score, String userName){
         SQLiteDatabase database = getReadableDatabase();

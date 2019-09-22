@@ -426,6 +426,8 @@ public class level2_int2 extends AppCompatActivity {
                 iv34.getVisibility() == View.INVISIBLE ){
 
 
+            player.stop();
+            ctdown.cancel();
             Intent a = getIntent();
             userName = a.getStringExtra("Name");
             Intent intent = new Intent(this, next.class);

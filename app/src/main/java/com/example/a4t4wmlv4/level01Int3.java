@@ -88,7 +88,7 @@ public class level01Int3 extends AppCompatActivity {
                 intent.putExtra("uName",username);
                 intent.putExtra("points",points);
 
-                int res = dbHelper.insertRound1Score(Integer.parseInt(points),username);
+                int res = (int) dbHelper.insertRound1Score(Integer.parseInt(points),username);
 
                 if(res > 0){
                     Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_SHORT).show();

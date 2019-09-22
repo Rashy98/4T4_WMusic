@@ -19,7 +19,7 @@ import Database.DBHelper;
 public class next extends AppCompatActivity {
 
     private Button next , back;
-    public static MediaPlayer player;
+    public static MediaPlayer mp;
     private TextView score;
     int points;
     DBHelper dbHelper = new DBHelper(this);
@@ -31,6 +31,9 @@ public class next extends AppCompatActivity {
         setContentView(R.layout.activity_next);
 
 
+        mp = new MediaPlayer();
+        mp = MediaPlayer.create(this,R.raw.correctanswer);
+        mp.start();
 
         next = (Button) findViewById(R.id.next);
         back = (Button) findViewById(R.id.back);
@@ -49,7 +52,6 @@ public class next extends AppCompatActivity {
             public void onClick(View view) {
 
                 NextPage(view);
-                player.pause();
             }
         });
         back.setOnClickListener(new View.OnClickListener() {
@@ -57,7 +59,7 @@ public class next extends AppCompatActivity {
             public void onClick(View view) {
 
                 NextPage(view);
-                player.pause();
+                mp.stop();
             }
         });
 
@@ -67,6 +69,7 @@ public class next extends AppCompatActivity {
 
         if(v == next ){
 
+            mp.stop();
             if(points == 4){
 
                 int result = dbHelper.insertRound2Score(Integer.toString(points), userName);
@@ -98,6 +101,8 @@ public class next extends AppCompatActivity {
                 }
 
                 Intent intent = new Intent(this, level03_main.class);
+
+                intent.putExtra("UName", userName);
                 startActivity(intent);
             }
         }

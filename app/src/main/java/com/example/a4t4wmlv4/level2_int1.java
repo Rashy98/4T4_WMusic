@@ -70,10 +70,10 @@ public class level2_int1 extends AppCompatActivity {
             @Override
             public void onFinish() {
 
-                ctdown.cancel();
                 Intent a = new Intent(level2_int1.this, timesup.class);
                 a.putExtra("From_activity","lvl2_1");
                 startActivity(a);
+                ctdown.cancel();
 
             }
         }.start();
@@ -347,6 +347,8 @@ public class level2_int1 extends AppCompatActivity {
                 iv24.getVisibility() == View.INVISIBLE ){
 
 
+            player.stop();
+            ctdown.cancel();
             Intent a = getIntent();
             userName = a.getStringExtra("Name");
             Intent intent = new Intent(this, next.class);

@@ -534,6 +534,8 @@ public class level2_int3 extends AppCompatActivity {
                 iv44.getVisibility() == View.INVISIBLE  ){
 
 
+            player.stop();
+            ctdown.cancel();
             Intent a = getIntent();
             userName = a.getStringExtra("Name");
             Intent intent = new Intent(this, next.class);
