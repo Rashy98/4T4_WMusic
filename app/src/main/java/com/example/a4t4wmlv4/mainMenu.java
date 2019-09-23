@@ -118,7 +118,7 @@ public class mainMenu extends AppCompatActivity {
             String previous = a.getStringExtra("Name");
             //Intent intent = new Intent(this, level4.class);
             Intent intent = new Intent(this, level04Main.class);
-            intent.putExtra("Uname" , previous);
+            intent.putExtra("uName" , previous);
             startActivity(intent);
 
 

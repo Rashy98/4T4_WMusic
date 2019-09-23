@@ -25,6 +25,8 @@ public class level2showdetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2showdetails);
+        Intent a = getIntent();
+        userName = a.getStringExtra("Name");
 
         names = findViewById(R.id.names);
         next = findViewById(R.id.nextpage);
@@ -43,7 +45,8 @@ public class level2showdetails extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(level2showdetails.this,Last.class);
+                Intent i = new Intent(level2showdetails.this,mainMenu.class);
+                i.putExtra("Name",userName);
                 startActivity(i);
             }
         });

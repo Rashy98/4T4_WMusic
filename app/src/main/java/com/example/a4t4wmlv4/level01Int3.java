@@ -3,6 +3,7 @@ package com.example.a4t4wmlv4;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -28,6 +29,7 @@ public class level01Int3 extends AppCompatActivity {
     String username;
     private String points;
     DBHelper dbHelper = new DBHelper(this);
+    MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +63,10 @@ public class level01Int3 extends AppCompatActivity {
         }.start();
 
 
+        mp = new MediaPlayer();
+        mp = MediaPlayer.create(this, R.raw.background);
+        //player.setLooping(true);
+        mp.start();
 
         //back to home
         homebutton = findViewById(R.id.home);
@@ -89,6 +95,7 @@ public class level01Int3 extends AppCompatActivity {
                 intent.putExtra("points",points);
 
                 int res = (int) dbHelper.insertRound1Score(Integer.parseInt(points),username);
+                mp.stop();
 
                 if(res > 0){
                     Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_SHORT).show();

@@ -3,6 +3,7 @@ package com.example.a4t4wmlv4;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,12 +17,17 @@ public class level04Main extends AppCompatActivity {
     DBHelper db = new DBHelper(this);
     String name;
     TextView userN;
+    MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level04_main);
 
+        mp = new MediaPlayer();
+        mp = MediaPlayer.create(this, R.raw.background);
+        //player.setLooping(true);
+        mp.start();
 
 
 
@@ -32,7 +38,7 @@ public class level04Main extends AppCompatActivity {
         //welcomet.setText();
 
         Intent a = getIntent();
-        name = a.getStringExtra("Uname");
+        name = a.getStringExtra("uName");
         userN = (TextView) findViewById(R.id.welcome);
         userN.setText("All the best "+name+ "!!");
 
@@ -91,6 +97,7 @@ public class level04Main extends AppCompatActivity {
         but04.setEnabled(false);
     }
     public void switchPage (View v){
+        mp.stop();
         if(v == but01) {
             Intent intent = new Intent(this, level04_01.class);
             intent.putExtra("Name" , name);
