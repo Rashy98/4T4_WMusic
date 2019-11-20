@@ -45,10 +45,7 @@ public class level01score extends AppCompatActivity {
             intent3.putExtra("points",points);
 
             startActivity(intent3);
-//        }else if(i == 3){
-//            Intent intent4 = new Intent(level01score.this,level01Int3.class);
-//            startActivity(intent4);
-//        }
+
 
 
         }

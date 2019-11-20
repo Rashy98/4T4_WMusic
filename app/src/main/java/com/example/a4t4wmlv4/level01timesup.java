@@ -20,14 +20,7 @@ public class level01timesup extends AppCompatActivity {
         points = getIntent().getStringExtra("points");
         username = getIntent().getStringExtra("uName");
 
-//        btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-////              Intent i = new Intent(level01timesup.this,level1.class);
-////               startActivity(i);
-//                goback();
-//            }
-//        });
+
     }
 
     public void goBack(View view){

@@ -73,8 +73,7 @@ public class level01int4 extends AppCompatActivity {
 
         View layout = inflater.inflate(R.layout.correct_toast, (ViewGroup) findViewById(R.id.custom_toast_container));
 
-//        TextView textView = (TextView) layout.findViewById(R.id.text);
-//        textView.setText();
+
 
         Toast toast = new Toast(getApplicationContext());
         toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);

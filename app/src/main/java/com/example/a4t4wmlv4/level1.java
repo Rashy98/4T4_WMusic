@@ -44,33 +44,8 @@ public class level1 extends AppCompatActivity {
 
         mp = new MediaPlayer();
         mp = MediaPlayer.create(this, R.raw.background);
-        //player.setLooping(true);
         mp.start();
 
-//        final MediaPlayer mplayer = MediaPlayer.create(this,R.raw.background);
-//
-//        mplayer.start();
-//      //sound on off
-//        sound = (Button) findViewById(R.id.soundon);
-//
-//        sound.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                sound.setBackgroundResource(R.drawable.soundoff);
-//
-//                if(isPressed){
-//                    sound.setBackgroundResource(R.drawable.soundoff);
-//                    mplayer.pause();
-//                }
-//                else{
-//                    sound.setBackgroundResource(R.drawable.soundon);
-//                    mplayer.start();
-//                }
-//
-//                isPressed= !isPressed;
-//            }
-//        });
 
 
 
@@ -153,32 +128,7 @@ public class level1 extends AppCompatActivity {
         ctdown.cancel();
     }
 
-    //correct image toast
-//    public  void correct(View view){
-//
-//       // ctdown.cancel();
-//
-//        LayoutInflater inflater = getLayoutInflater();
-//
-//        View layout = inflater.inflate(R.layout.correct_toast,(ViewGroup) findViewById(R.id.custom_toast_container));
-//
-////        TextView textView = (TextView) layout.findViewById(R.id.text);
-////        textView.setText();
-//
-//        Toast toast = new Toast(getApplicationContext());
-//        toast.setGravity(Gravity.CENTER_VERTICAL,0,0);
-//        toast.setDuration(Toast.LENGTH_SHORT);
-//        toast.setView(layout);
-//        toast.show();
-//
-//        ctdown.cancel();
-//
-//
-//
-////        String score =  ((TextView) findViewById(R.id.score)).toString();
-////        DBHelper db = new DBHelper(this);
-////        db.addInfo(score);
-//    }
+
 
 
     //wrong image toast
@@ -201,6 +151,7 @@ public class level1 extends AppCompatActivity {
 
     }
 
+    //vibrate
     private void Vibratee() {
         if (Build.VERSION.SDK_INT >= 26) {
             ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(VibrationEffect.createOneShot(150,10));

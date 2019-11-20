@@ -50,6 +50,8 @@ public class level04_01 extends AppCompatActivity {
         userName = getIntent().getStringExtra("Name");
 
         final TextView time = (TextView) findViewById(R.id.time);
+
+        //timer
         ctdown = new CountDownTimer(30000,1000) {
             @Override
             public void onTick(long l) {
@@ -69,11 +71,12 @@ public class level04_01 extends AppCompatActivity {
 
         }.start();
 
+        //Background music
         mp = new MediaPlayer();
         mp = MediaPlayer.create(this, R.raw.background);
-        //player.setLooping(true);
         mp.start();
 
+        //home button
         home = findViewById(R.id.home1);
         home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,7 +88,7 @@ public class level04_01 extends AppCompatActivity {
 
 
 
-
+       //animation
        smallbigforth = AnimationUtils.loadAnimation(this, R.anim.smallbigforth);
 
         keys = shuffleArray(keys);
@@ -102,6 +105,7 @@ public class level04_01 extends AppCompatActivity {
     }
 
 
+    //shuffle the array
     private String[] shuffleArray(String[] ar) {
         Random rnd = new Random();
         for (int i = ar.length - 1; i > 0; i--) {

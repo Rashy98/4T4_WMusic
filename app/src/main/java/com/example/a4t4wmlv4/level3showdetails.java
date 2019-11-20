@@ -43,6 +43,7 @@ public class level3showdetails extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(level3showdetails.this,Last.class);
                 startActivity(i);
+
             }
         });
 

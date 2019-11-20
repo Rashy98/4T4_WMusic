@@ -67,11 +67,9 @@ public class level01Int2 extends AppCompatActivity {
 
         mp = new MediaPlayer();
         mp = MediaPlayer.create(this, R.raw.background);
-        //player.setLooping(true);
         mp.start();
 
-        //adding score
-//        showValue = (TextView) findViewById(R.id.score);
+
 
         homebutton = findViewById(R.id.home);
 
@@ -172,12 +170,6 @@ public class level01Int2 extends AppCompatActivity {
             ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
         }
     }
-   /* private void Vibratee() {
-        if (Build.VERSION.SDK_INT >= 26) {
-            ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(VibrationEffect.createOneShot(150,10));
-        } else {
-            ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(150);
-        }
-    }*/
+
 
 }
